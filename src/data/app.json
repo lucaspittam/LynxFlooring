@@ -1,0 +1,94 @@
+{
+    "settings": {
+        "siteName": "Lynx Flooring",
+        "siteDescription": "Lynx Flooring Website",
+        "formspreeURL": "https://formspree.io/f/your_api_key",
+        "mailchimp": {
+            "url": "",
+            "key": ""
+        },
+        "perPage": 6
+    },
+    "header": {
+        "logo": {
+            "image": "/img/logo/Lynx_Lite.png",
+            "alt": "Logo"
+        },
+        "menu": [
+            {
+                "label": "Home",
+                "link": "/",
+                "children": 0
+            },
+            {
+                "label": "Our Companies",
+                "link": "/projects",
+                "children": 0
+            },
+            {
+                "label": "Contact Us",
+                "link": "/contact",
+                "children": 0
+            }
+        ]
+    },
+    "footer": {
+        "logo": {
+            "image": "/img/logo/Lynx_Lite.png",
+            "alt": "Logo"
+        },
+        "copy": "© 2025 Lynx Flooring. All rights reserved.",
+        "menu": [
+            {
+                "label": "Our Companies",
+                "link": "/projects"
+            },
+            {
+                "label": "Contact",
+                "link": "/contact"
+            }
+        ]
+    },
+    "social": [
+        {
+            "link": "https://linkedin.com/company/lynx-flooring",
+            "title": "LinkedIn"
+        }
+    ],
+    "projects": {
+        "categories": [
+            {
+                "name": "Architecture",
+                "slug": "architecture"
+            },
+            {
+                "name": "Interior",
+                "slug": "interior"
+            },
+            {
+                "name": "Decor",
+                "slug": "decor"
+            }
+        ]
+    },
+    "team": {
+        "categories": [
+            {
+                "name": "Executive",
+                "slug": "executive"
+            },
+            {
+                "name": "Data centers",
+                "slug": "data-centers"
+            },
+            {
+                "name": "Education",
+                "slug": "education"
+            },
+            {
+                "name": "Workplace",
+                "slug": "workplace"
+            }
+        ]
+    }
+}

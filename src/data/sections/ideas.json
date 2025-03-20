@@ -1,0 +1,21 @@
+{
+    "title": "We turn ideas into works of art",
+    "subtitle": "LynxFlooring Purpose",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse ultrices gravida.",
+    "button": {
+        "link": "/projects",
+        "label": "View Our Projects"
+    },
+    "items": [
+        {
+            "icon": "/img/icons/4.svg",
+            "link": "/projects",
+            "label": "Our Projects"
+        },
+        {
+            "icon": "/img/icons/5.svg",
+            "link": "/contact",
+            "label": "Contact Us"
+        }
+    ]
+}
