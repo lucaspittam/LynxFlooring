@@ -59,6 +59,12 @@ const DefaultHeader = () => {
                                     )}
                                 </li>
                                 ))}
+                                {/* Mobile-only Join Us button */}
+                                <li className="mil-mobile-only">
+                                    <Link href="/join" className="mil-link-hover">
+                                        JOIN US
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
                     </div>
