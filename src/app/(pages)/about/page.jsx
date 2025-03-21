@@ -7,8 +7,6 @@ import IdeasSection from "@components/sections/Ideas";
 import AdvantagesSection from "@components/sections/Advantages";
 import LatestProjectsSection from "@components/sections/LatestProjects";
 import HowWeWorkSection from "@components/sections/HowWeWork";
-import CoresSection from "@components/sections/Cores";
-import ClientPartnersSlider from "@components/sliders/ClientPartnersSlider";
 
 export const metadata = {
   title: {
@@ -22,12 +20,10 @@ export default function About() {
   return (
     <>
       <AboutSection />
-      <ClientPartnersSlider />
       <IdeasSection />
       <AdvantagesSection />
       <LatestProjectsSection />
       <HowWeWorkSection />
-      <CoresSection />
     </>
   );
-};
+}
