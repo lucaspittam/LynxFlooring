@@ -5,8 +5,7 @@ import {
     ComposableMap,
     Geographies,
     Geography,
-    Marker,
-    ZoomableGroup
+    Marker
 } from 'react-simple-maps';
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -159,90 +158,91 @@ const USMap = ({ locations }) => {
                 projection="geoAlbersUsa"
                 style={{
                     width: '100%',
-                    height: '100%'
+                    height: '100%',
+                    cursor: 'default'
                 }}
             >
-                <ZoomableGroup>
-                    <Geographies geography={geoUrl}>
-                        {({ geographies }) =>
-                            geographies.map(geo => (
-                                <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    fill="#2a2a2a"
-                                    stroke="#3d3d3d"
-                                    strokeWidth={0.5}
+                <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                        geographies.map(geo => (
+                            <Geography
+                                key={geo.rsmKey}
+                                geography={geo}
+                                fill="#2a2a2a"
+                                stroke="#3d3d3d"
+                                strokeWidth={0.5}
+                                style={{
+                                    default: {
+                                        outline: 'none',
+                                        transition: 'all 0.3s ease',
+                                        cursor: 'default'
+                                    },
+                                    hover: {
+                                        fill: "#2a2a2a",
+                                        outline: 'none',
+                                        cursor: 'default'
+                                    },
+                                    pressed: {
+                                        fill: "#2a2a2a",
+                                        outline: 'none',
+                                        cursor: 'default'
+                                    }
+                                }}
+                            />
+                        ))
+                    }
+                </Geographies>
+                {locations.map((location, index) => {
+                    const locationInfo = locationData[location.city];
+                    if (locationInfo) {
+                        return (
+                            <Marker 
+                                key={index} 
+                                coordinates={locationInfo.coordinates}
+                                onClick={(evt) => handleMarkerClick(location, evt)}
+                            >
+                                <g
                                     style={{
-                                        default: {
-                                            outline: 'none',
-                                            transition: 'all 0.3s ease'
-                                        },
-                                        hover: {
-                                            fill: "#3a3a3a",
-                                            outline: 'none',
-                                            transition: 'all 0.3s ease'
-                                        },
-                                        pressed: {
-                                            fill: "#3a3a3a",
-                                            outline: 'none'
-                                        }
+                                        cursor: 'pointer',
+                                        transform: 'translate(-12, -24)',
+                                        transition: 'all 0.3s ease'
                                     }}
-                                />
-                            ))
-                        }
-                    </Geographies>
-                    {locations.map((location, index) => {
-                        const locationInfo = locationData[location.city];
-                        if (locationInfo) {
-                            return (
-                                <Marker 
-                                    key={index} 
-                                    coordinates={locationInfo.coordinates}
-                                    onClick={(evt) => handleMarkerClick(location, evt)}
+                                    onMouseEnter={(e) => {
+                                        if (!selectedMarker) {
+                                            handleMarkerClick(location, e);
+                                        }
+                                        e.currentTarget.style.transform = 'translate(-12, -28)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        if (!selectedMarker) {
+                                            setTooltipContent("");
+                                        }
+                                        e.currentTarget.style.transform = 'translate(-12, -24)';
+                                    }}
                                 >
-                                    <g
+                                    <circle
+                                        r="8"
+                                        fill={selectedMarker?.city === location.city ? '#e0f000' : '#C2D720'}
+                                        stroke="#242424"
+                                        strokeWidth="2"
+                                        cx="12"
+                                        cy="12"
                                         style={{
-                                            cursor: 'pointer',
-                                            transform: 'translate(-12, -24)',
-                                            transition: 'all 0.3s ease'
+                                            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                                         }}
-                                        onMouseEnter={(e) => {
-                                            if (!selectedMarker) {
-                                                handleMarkerClick(location, e);
-                                            }
-                                            e.currentTarget.style.transform = 'translate(-12, -28)';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            if (!selectedMarker) {
-                                                setTooltipContent("");
-                                            }
-                                            e.currentTarget.style.transform = 'translate(-12, -24)';
-                                        }}
-                                    >
-                                        <circle
-                                            r="8"
-                                            fill={selectedMarker?.city === location.city ? '#e0f000' : '#C2D720'}
-                                            stroke="#242424"
-                                            strokeWidth="2"
-                                            cx="12"
-                                            cy="12"
-                                            style={{
-                                                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
-                                            }}
-                                        />
-                                        <circle
-                                            r="3"
-                                            fill="#242424"
-                                            cx="12"
-                                            cy="12"
-                                        />
-                                    </g>
-                                </Marker>
-                            );
-                        }
-                        return null;
-                    })}
-                </ZoomableGroup>
+                                    />
+                                    <circle
+                                        r="3"
+                                        fill="#242424"
+                                        cx="12"
+                                        cy="12"
+                                    />
+                                </g>
+                            </Marker>
+                        );
+                    }
+                    return null;
+                })}
             </ComposableMap>
             {tooltipContent && (
                 <div
