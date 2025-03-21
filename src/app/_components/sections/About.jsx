@@ -1,15 +1,9 @@
 "use client";
 
-import { useState } from 'react';
 import Data from "@data/sections/about.json";
 import Link from "next/link";
 
-import ModalVideo from 'react-modal-video'
-import 'react-modal-video/css/modal-video.css'
-
 const AboutSection = () => {
-    const [isOpen, setOpen] = useState(false);
-
     return (
         <>
             {/* about */}
@@ -24,10 +18,10 @@ const AboutSection = () => {
                                 <span className="mil-suptitle mil-upper mil-up mil-mb-30" dangerouslySetInnerHTML={{__html : Data.subtitle}} />
                                 <h2 className="mil-upper mil-up mil-mb-30" dangerouslySetInnerHTML={{__html : Data.title}} />
                                 <p className="mil-up mil-mb-40" dangerouslySetInnerHTML={{__html : Data.description}} />
-                                <a onClick={() => setOpen(true)} className="mil-link mil-upper mil-up has-popup-video" style={{ "cursor" : "pointer" }}>
+                                <Link href={Data.button.link} className="mil-link mil-upper mil-up">
                                     {Data.button.label} 
                                     <span className="mil-arrow"><img src="/img/icons/2.svg" alt="arrow" /></span>
-                                </a>
+                                </Link>
                             </div>
 
                         </div>
@@ -47,8 +41,6 @@ const AboutSection = () => {
                     </div>
                 </div>
             </section>
-
-            <ModalVideo channel='youtube' isOpen={isOpen} videoId={Data.button.link.replace("https://www.youtube.com/watch?v=", "")} onClose={() => setOpen(false)} />
             {/* about end */}
         </>
     );

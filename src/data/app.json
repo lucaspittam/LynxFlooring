@@ -22,7 +22,7 @@
             },
             {
                 "label": "Our Companies",
-                "link": "/projects",
+                "link": "/companies",
                 "children": 0
             },
             {
@@ -37,11 +37,11 @@
             "image": "/img/logo/Lynx_Lite.png",
             "alt": "Logo"
         },
-        "copy": "© 2025 Lynx Flooring. All rights reserved.",
+        "copy": "© 2025 Lynx Flooring.",
         "menu": [
             {
                 "label": "Our Companies",
-                "link": "/projects"
+                "link": "/companies"
             },
             {
                 "label": "Contact",

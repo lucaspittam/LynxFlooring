@@ -6,6 +6,7 @@ $font-2: 'Caveat', cursive;
 $dark: rgba(0, 0, 0, 1);
 $dark-soft: rgba(42, 51, 64, 1);
 $light: rgba(255, 255, 255, 1);
+$light-soft: rgba(245, 245, 245, 1);
 $accent: #C2D720;
 
 $dt-5: rgba(0, 0, 0, .05);
@@ -55,10 +56,4 @@ $text: 15px;
 
 $t-sm: .2s cubic-bezier(0, 0, 0.3642, 1);
 $t-md: .4s cubic-bezier(0, 0, 0.3642, 1);
-$t-lg: .6s cubic-bezier(0, 0, 0.3642, 1);
-
-:export {
-    accentColor: $accent;
-    darkColor: $dark;
-    lightColor: $light;
-}
+$t-lg: .6s cubic-bezier(0, 0, 0.3642, 1); 

@@ -1,0 +1,22 @@
+.locationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.locationsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.locationsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.locationsList::-webkit-scrollbar-thumb {
+    background: #C2D720;
+    border-radius: 3px;
+} 

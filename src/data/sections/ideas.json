@@ -1,16 +1,16 @@
 {
-    "title": "We turn ideas into works of art",
-    "subtitle": "LynxFlooring Purpose",
+    "title": "Whatever is worth doing at all, is worth doing well.",
+    "subtitle": "Our Purpose",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse ultrices gravida.",
     "button": {
         "link": "/projects",
-        "label": "View Our Projects"
+        "label": "View Our Companies"
     },
     "items": [
         {
             "icon": "/img/icons/4.svg",
             "link": "/projects",
-            "label": "Our Projects"
+            "label": "Our Companies"
         },
         {
             "icon": "/img/icons/5.svg",

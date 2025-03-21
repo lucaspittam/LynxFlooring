@@ -2,20 +2,21 @@
     "title": "This is How Magic Happens",
     "subtitle": "How We Work",
     "items": [
-        {
-            "title": "High Efficiency",
-            "icon": "/img/icons/7.svg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore aliqua."
-        },
-        {
-            "title": "Team of Experts",
-            "icon": "/img/icons/8.svg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore aliqua."
-        },
-        {
-            "title": "Technology",
-            "icon": "/img/icons/9.svg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore aliqua."
-        }
+      {
+        "title": "High Efficiency",
+        "icon": "/img/icons/7.svg",
+        "text": "Our experienced team coordinates resources, streamlines internal processes, and provides strategic oversight to ensure every company is operating at peak performance."
+      },
+      {
+        "title": "Team of Experts",
+        "icon": "/img/icons/8.svg",
+        "text": "We bring together dedicated professionals with extensive industry experience, strategic vision, and specialized knowledge, providing expert guidance to elevate the performance of each company within our portfolio."
+      },
+      {
+        "title": "Technology",
+        "icon": "/img/icons/9.svg",
+        "text": "Leveraging advanced technology and innovative software platforms, we ensure consistent quality standards, accurate project tracking, and efficient operational workflows."
+      }
     ]
-}
+  }
+  

@@ -1,5 +1,6 @@
 import Data from "@data/sections/ideas.json";
 import Link from "next/link";
+import Image from "next/image";
 
 const IdeasSection = () => {
     return (
@@ -17,7 +18,9 @@ const IdeasSection = () => {
                                 <h2 className="mil-upper mil-up mil-mb-40" dangerouslySetInnerHTML={{__html : Data.title}} />
                                 <Link href={Data.button.link} className="mil-link mil-upper mil-up">
                                     {Data.button.label}
-                                    <span className="mil-arrow"><img src="img/icons/1.svg" alt="arrow" /></span>
+                                    <span className="mil-arrow">
+                                        <Image src="/img/icons/1.svg" alt="arrow" width={12} height={12} />
+                                    </span>
                                 </Link>
                             </div>
 
@@ -29,14 +32,12 @@ const IdeasSection = () => {
                             <div className="row">
                                 {Data.items.map((item, key) => (
                                 <div className="col-sm-4" key={`ideas-item-${key}`}>
-
-                                    <Link href={item.link} className="mil-icon-box mil-sm-center mil-mb-30">
-                                        <div className="mil-icon mil-icon-accent-bg mil-up mil-mb-30">
-                                            <img src={item.icon} alt="icon" />
+                                    <Link href={item.link} className="mil-icon-box mil-sm-center mil-mb-30 d-flex flex-column align-items-center text-center">
+                                        <div className="mil-icon mil-icon-accent-bg mil-up mb-3">
+                                            <Image src={item.icon} alt={item.label} width={18} height={18} />
                                         </div>
                                         <h6 className="mil-upper mil-up" dangerouslySetInnerHTML={{__html : item.label}} />
                                     </Link>
-
                                 </div>
                                 ))}
                             </div>

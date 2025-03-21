@@ -1780,7 +1780,7 @@ inputs
 
     & input {
         width: 100%;
-        height: 70px;
+        height: 50px;
         font-family: $font-1;
         color: $light;
         font-size: $text;
@@ -1803,7 +1803,7 @@ inputs
     & textarea {
         padding-top: 30px;
         width: 100%;
-        height: 200px;
+        height: 80px;
         font-size: $text;
         font-family: $font-1;
         color: $light;
@@ -1817,16 +1817,11 @@ inputs
         }
 
         &.mil-shortened {
-            height: 200px;
+            height: 80px;
         }
 
         @media screen and (max-width: 992px) {
-            height: 200px;
-        }
-
-        &:focus {
-            outline: inherit;
-            border-bottom: solid 1px $lt-40;
+            height: 80px;
         }
     }
 
@@ -2689,5 +2684,283 @@ load more
         position: absolute;
         left: 0;
         z-index: 0;
+    }
+}
+
+/* Company Filter Buttons */
+.mil-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+
+    .mil-filter-btn {
+        padding: 12px 24px;
+        border: none;
+        background: #f5f5f5;
+        color: $dark;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        
+        &:hover {
+            background: #eeeeee;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        &.mil-active {
+            background: $accent;
+            color: white;
+            border-color: $accent;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        gap: 10px;
+    }
+}
+
+/* Company Cards */
+.mil-company-card {
+    background: $light;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: $t-sm;
+    height: 100%;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    &.mil-single-view {
+        padding: 20px;
+        
+        .mil-company-image {
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mil-company-content {
+            padding: 0 0 0 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            
+            .mil-company-header {
+                margin-bottom: 20px;
+                
+                .mil-company-title {
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                }
+                
+                .mil-company-location {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .mil-company-description {
+                    font-size: 15px;
+                    line-height: 1.5;
+                    margin-top: 10px;
+                }
+            }
+            
+            .mil-company-services {
+                margin-bottom: 20px;
+                
+                h4 {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                }
+                
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    
+                    li {
+                        font-size: 14px;
+                        padding: 6px 15px;
+                        background: #f8f9fa;
+                        border-radius: 4px;
+                    }
+                }
+            }
+            
+            .mil-company-projects {
+                margin-bottom: 20px;
+                
+                h4 {
+                    margin-bottom: 15px;
+                    font-size: 16px;
+                }
+                
+                .mil-project-preview {
+                    background: #f8f9fa;
+                    padding: 12px;
+                    border-radius: 8px;
+                    height: 100%;
+                    
+                    img {
+                        height: 180px;
+                        border-radius: 6px;
+                        object-fit: cover;
+                    }
+                    
+                    h5 {
+                        margin: 10px 0 5px;
+                        font-size: 15px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        line-height: 1.4;
+                    }
+                }
+            }
+            
+            .mil-company-contact {
+                margin-top: auto;
+                padding-top: 15px;
+                border-top: 1px solid rgba(0,0,0,0.1);
+                
+                h4 {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                }
+                
+                p {
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    color: $dark-soft;
+                }
+            }
+        }
+        
+        @media screen and (max-width: 992px) {
+            padding: 15px;
+            
+            .mil-company-content {
+                padding: 20px 0 0;
+            }
+            
+            .mil-company-image {
+                height: 250px;
+            }
+        }
+    }
+
+    .mil-company-image {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        .mil-company-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: $t-sm;
+        }
+    }
+
+    .mil-company-content {
+        padding: 30px;
+
+        .mil-company-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: $dark;
+        }
+
+        .mil-company-location {
+            color: $accent;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .mil-company-description {
+            margin-bottom: 25px;
+            color: $dark-soft;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: $dark;
+        }
+
+        .mil-company-services {
+            margin-bottom: 25px;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                li {
+                    background: $light-soft;
+                    padding: 8px 15px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    color: $dark;
+                }
+            }
+        }
+
+        .mil-company-projects {
+            margin-bottom: 25px;
+
+            .mil-project-preview {
+                margin-bottom: 15px;
+
+                img {
+                    width: 100%;
+                    height: 150px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                }
+
+                h5 {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                    color: $dark;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: $dark-soft;
+                }
+            }
+        }
+
+        .mil-company-contact {
+            p {
+                margin-bottom: 5px;
+                color: $dark-soft;
+            }
+        }
     }
 }
