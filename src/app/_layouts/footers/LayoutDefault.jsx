@@ -32,15 +32,6 @@ const DefaultFooter = () => {
                                 }}
                             />
                         </Link>
-                        <p style={{
-                            color: '#999',
-                            fontSize: '1rem',
-                            lineHeight: '1.6',
-                            marginBottom: '25px',
-                            maxWidth: '350px'
-                        }}>
-                            Transforming spaces with innovative flooring solutions across the United States.
-                        </p>
                         <div style={{ display: 'flex', gap: '15px' }}>
                             <a 
                                 href={AppData.social[0].link} 
