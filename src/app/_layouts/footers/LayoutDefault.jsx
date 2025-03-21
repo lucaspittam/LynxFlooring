@@ -10,44 +10,218 @@ const DefaultFooter = () => {
   return (
     <>
     {/* footer */}
-    <footer className="mil-relative" style={{
-        "backgroundColor": "#262626",
-        "borderTop": "2px solid #C2D720"
-    }}>
-        <div className="container mil-p-30-20">
-            <div className="row justify-content-between align-items-center">
-                <div className="col-lg-3">
-                    <Link href="/contact" style={{
-                        "backgroundColor": "#C2D720",
-                        "color": "#262626",
-                        "padding": "15px 25px",
-                        "textDecoration": "none",
-                        "fontSize": "14px",
-                        "fontWeight": "500",
-                        "display": "inline-block",
-                        "textTransform": "uppercase",
-                        "letterSpacing": "1px"
-                    }}>Contact Us</Link>
-                </div>
-                <div className="col-lg-4" style={{"textAlign": "center"}}>
-                    <p className="mil-light-soft" style={{"opacity": "0.7"}}>
-                        692 Queen St E #205<br/>
-                        Toronto, ON M4M 1G9
-                    </p>
-                </div>
-                <div className="col-lg-3" style={{"textAlign": "right"}}>
-                    <a href="https://linkedin.com/company/lynx-flooring" target="_blank" rel="noopener noreferrer" style={{"textDecoration": "none"}}>
-                        <i className="fab fa-linkedin" style={{"fontSize": "24px", "color": "#fff"}}></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div className="container-fluid" style={{"borderTop": "1px solid rgba(255,255,255,0.1)"}}>
+    <footer className="mil-relative">
+        <div style={{
+            background: 'linear-gradient(to bottom, #262626, #1a1a1a)',
+            borderTop: '2px solid #C2D720',
+            padding: '60px 0 30px'
+        }}>
             <div className="container">
-                <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "center", "padding": "15px 0"}}>
-                    <p className="mil-light-soft" style={{"margin": "0", "opacity": "0.7", "flex": "1", "textAlign": "center"}}>© 2025 Lynx Flooring.</p>
-                    <Link href="/privacy-policy" className="mil-light-soft" style={{"textDecoration": "none", "opacity": "0.7", "flex": "1", "textAlign": "center"}}>Privacy Policy</Link>
-                    <Link href="/terms-conditions" className="mil-light-soft" style={{"textDecoration": "none", "opacity": "0.7", "flex": "1", "textAlign": "center"}}>Terms & Conditions</Link>
+                {/* Main Footer Content */}
+                <div className="row justify-content-between mb-5">
+                    {/* Logo and About */}
+                    <div className="col-lg-4 mb-4 mb-lg-0">
+                        <Link href="/" style={{ display: 'inline-block', marginBottom: '25px' }}>
+                            <img 
+                                src={AppData.footer.logo.image} 
+                                alt={AppData.footer.logo.alt} 
+                                style={{
+                                    width: '200px',
+                                    height: 'auto',
+                                    filter: 'brightness(0) invert(1)'
+                                }}
+                            />
+                        </Link>
+                        <p style={{
+                            color: '#999',
+                            fontSize: '1rem',
+                            lineHeight: '1.6',
+                            marginBottom: '25px',
+                            maxWidth: '350px'
+                        }}>
+                            Transforming spaces with innovative flooring solutions across the United States.
+                        </p>
+                        <div style={{ display: 'flex', gap: '15px' }}>
+                            <a 
+                                href={AppData.social[0].link} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'all 0.3s ease',
+                                    color: '#fff'
+                                }}
+                                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#C2D720'}
+                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
+                            >
+                                <i className="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="col-lg-3 mb-4 mb-lg-0">
+                        <h4 style={{
+                            color: '#fff',
+                            fontSize: '1.2rem',
+                            fontWeight: '600',
+                            marginBottom: '20px',
+                            position: 'relative',
+                            paddingBottom: '15px'
+                        }}>
+                            Quick Links
+                            <span style={{
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 0,
+                                width: '30px',
+                                height: '2px',
+                                backgroundColor: '#C2D720'
+                            }}></span>
+                        </h4>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                            {AppData.footer.menu.map((item, index) => (
+                                <li key={index} style={{ marginBottom: '12px' }}>
+                                    <Link 
+                                        href={item.link}
+                                        style={{
+                                            color: '#999',
+                                            textDecoration: 'none',
+                                            fontSize: '1rem',
+                                            transition: 'all 0.3s ease',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '8px'
+                                        }}
+                                        onMouseOver={(e) => {
+                                            e.currentTarget.style.color = '#C2D720';
+                                            e.currentTarget.style.paddingLeft = '5px';
+                                        }}
+                                        onMouseOut={(e) => {
+                                            e.currentTarget.style.color = '#999';
+                                            e.currentTarget.style.paddingLeft = '0';
+                                        }}
+                                    >
+                                        <span style={{ fontSize: '12px' }}>›</span>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div className="col-lg-4">
+                        <h4 style={{
+                            color: '#fff',
+                            fontSize: '1.2rem',
+                            fontWeight: '600',
+                            marginBottom: '20px',
+                            position: 'relative',
+                            paddingBottom: '15px'
+                        }}>
+                            Contact Us
+                            <span style={{
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 0,
+                                width: '30px',
+                                height: '2px',
+                                backgroundColor: '#C2D720'
+                            }}></span>
+                        </h4>
+                        <div style={{
+                            backgroundColor: 'rgba(255,255,255,0.05)',
+                            borderRadius: '10px',
+                            padding: '25px',
+                            color: '#fff'
+                        }}>
+                            <div style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                <div style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'rgba(194,215,32,0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <i className="fas fa-map-marker-alt" style={{ color: '#C2D720' }}></i>
+                                </div>
+                                <div>
+                                    <p style={{ margin: 0, color: '#999' }}>692 Queen St E #205<br/>Toronto, ON M4M 1G9</p>
+                                </div>
+                            </div>
+                            <div style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                <div style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'rgba(194,215,32,0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <i className="fas fa-phone" style={{ color: '#C2D720' }}></i>
+                                </div>
+                                <div>
+                                    <p style={{ margin: 0, color: '#999' }}>1 800 847 7978</p>
+                                </div>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                <div style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    borderRadius: '50%',
+                                    backgroundColor: 'rgba(194,215,32,0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <i className="fas fa-envelope" style={{ color: '#C2D720' }}></i>
+                                </div>
+                                <div>
+                                    <p style={{ margin: 0, color: '#999' }}>Info@lynxflooring.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div style={{
+                    borderTop: '1px solid rgba(255,255,255,0.1)',
+                    paddingTop: '20px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '10px'
+                }}>
+                    <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
+                        {AppData.footer.copy}
+                    </p>
+                    <div>
+                        <Link 
+                            href="/privacy-policy" 
+                            style={{
+                                color: '#666',
+                                textDecoration: 'none',
+                                fontSize: '0.9rem',
+                                transition: 'color 0.3s ease'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.color = '#C2D720'}
+                            onMouseOut={(e) => e.currentTarget.style.color = '#666'}
+                        >
+                            Privacy Policy
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

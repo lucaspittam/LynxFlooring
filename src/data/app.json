@@ -18,17 +18,17 @@
             {
                 "label": "Home",
                 "link": "/",
-                "children": 0
+                "children": []
             },
             {
                 "label": "Our Companies",
                 "link": "/companies",
-                "children": 0
+                "children": []
             },
             {
                 "label": "Contact Us",
                 "link": "/contact",
-                "children": 0
+                "children": []
             }
         ]
     },
@@ -42,6 +42,10 @@
             {
                 "label": "Our Companies",
                 "link": "/companies"
+            },
+            {
+                "label": "Join Us",
+                "link": "/join"
             },
             {
                 "label": "Contact",

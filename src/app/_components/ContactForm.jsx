@@ -1,143 +1,204 @@
 "use client";
 
-import { Formik } from 'formik';
+import { useState } from "react";
 import AppData from "@data/app.json";
 
-const ContactForm = ( { subtitleOffset } ) => {
-  return (
-    <>
-        {/* contact form */}
-        <Formik
-        initialValues = {{ email: '', name: '', tel: '', message: '' }}
-        validate = { values => {
-            const errors = {};
-            if (!values.email) {
-                errors.email = 'Required';
-            } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-                errors.email = 'Invalid email address';
-            }
-            return errors;
-        }}
-        onSubmit = {( values, { setSubmitting } ) => {
-            const form = document.getElementById("contactForm");
-            const status = document.getElementById("contactFormStatus");
-            const data = new FormData();
+const ContactForm = ({ formType = 'contact' }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: '',
+        resume: null,
+        companyRevenue: '',
+        companyLocation: '',
+        yearsInBusiness: '',
+    });
 
-            data.append('name', values.name);
-            data.append('email', values.email);
-            data.append('tel', values.tel);
-            data.append('message', values.message);
+    const getFormFields = () => {
+        switch(formType) {
+            case 'careers':
+                return [
+                    { name: 'name', type: 'text', label: 'Full Name', required: true },
+                    { name: 'email', type: 'email', label: 'Email', required: true },
+                    { name: 'phone', type: 'tel', label: 'Phone', required: true },
+                    { name: 'resume', type: 'file', label: 'Resume', required: true, accept: '.pdf,.doc,.docx' },
+                    { name: 'message', type: 'textarea', label: 'Tell us about yourself', required: true },
+                ];
+            case 'acquisition':
+                return [
+                    { name: 'name', type: 'text', label: 'Full Name', required: true },
+                    { name: 'email', type: 'email', label: 'Email', required: true },
+                    { name: 'phone', type: 'tel', label: 'Phone', required: true },
+                    { name: 'company', type: 'text', label: 'Company Name', required: true },
+                    { name: 'companyLocation', type: 'text', label: 'Company Location', required: true },
+                    { name: 'yearsInBusiness', type: 'number', label: 'Years in Business', required: true },
+                    { name: 'companyRevenue', type: 'text', label: 'Annual Revenue', required: true },
+                    { name: 'message', type: 'textarea', label: 'Tell us about your company', required: true },
+                ];
+            default:
+                return [
+                    { name: 'name', type: 'text', label: 'Full Name', required: true },
+                    { name: 'email', type: 'email', label: 'Email', required: true },
+                    { name: 'phone', type: 'tel', label: 'Phone', required: false },
+                    { name: 'message', type: 'textarea', label: 'Message', required: true },
+                ];
+        }
+    };
 
-            fetch(form.action, {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const response = await fetch(AppData.settings.formspreeURL, {
                 method: 'POST',
-                body: data,
                 headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    status.innerHTML = "<h5>Thanks, your message is sent successfully.</h5>";
-                    form.reset()
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                            status.innerHTML = "<h5>Oops! There was a problem submitting your form</h5>"
-                        }
-                    })
-                }
-            }).catch(() => {
-                status.innerHTML = "<h5>Oops! There was a problem submitting your form</h5>"
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    formType,
+                })
             });
 
-            setSubmitting(false);
-        }}
-        >
-        {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-        }) => (
-        <form onSubmit={handleSubmit} id="contactForm" action={AppData.settings.formspreeURL} className={subtitleOffset ? "mil-mt-suptitle-offset mil-mb-90 cform" : "mil-mb-90 cform"}>
-            <div className="row">
-                <div className="col-lg-6">
-                    <div className="mil-input-frame mil-dark-input mil-up mil-mb-30">
-                        <label className="mil-upper"><span>Full Name</span><span className="mil-required">*</span></label>
-                        <input 
-                            type="text" 
-                            placeholder="Enter Your Name Here"
-                            name="name" 
-                            required="required" 
+            if (response.ok) {
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    message: '',
+                    resume: null,
+                    companyRevenue: '',
+                    companyLocation: '',
+                    yearsInBusiness: '',
+                });
+                alert('Thank you for your submission!');
+            } else {
+                alert('There was an error. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error. Please try again.');
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value, type, files } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'file' ? files[0] : value
+        }));
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            {getFormFields().map((field, index) => (
+                <div key={index} style={{ marginBottom: '20px' }}>
+                    <label 
+                        htmlFor={field.name}
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontSize: '0.9rem',
+                            color: '#262626',
+                            fontWeight: '500'
+                        }}
+                    >
+                        {field.label}{field.required && ' *'}
+                    </label>
+                    
+                    {field.type === 'textarea' ? (
+                        <textarea
+                            id={field.name}
+                            name={field.name}
+                            value={formData[field.name]}
                             onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.name} 
+                            required={field.required}
+                            rows="4"
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                borderRadius: '6px',
+                                border: '1px solid #ddd',
+                                fontSize: '1rem',
+                                backgroundColor: 'white'
+                            }}
                         />
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="mil-input-frame mil-dark-input mil-up mil-mb-30">
-                        <label className="mil-upper"><span>Email address</span><span className="mil-required">*</span></label>
-                        <input 
-                            type="email" 
-                            placeholder="Enter Your Email Here"
-                            name="email"
-                            required="required"
+                    ) : field.type === 'file' ? (
+                        <input
+                            type="file"
+                            id={field.name}
+                            name={field.name}
                             onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email} 
+                            required={field.required}
+                            accept={field.accept}
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                borderRadius: '6px',
+                                border: '1px solid #ddd',
+                                fontSize: '1rem',
+                                backgroundColor: 'white'
+                            }}
                         />
-                    </div>
-                </div>
-                <div className="col-lg-12">
-                    <div className="mil-input-frame mil-dark-input mil-up mil-mb-30">
-                        <label className="mil-upper"><span>Phone</span><span className="mil-required">*</span></label>
-                        <input 
-                            type="tel" 
-                            placeholder="Enter Your Phone Here"
-                            name="tel"
-                            required="required"
+                    ) : (
+                        <input
+                            type={field.type}
+                            id={field.name}
+                            name={field.name}
+                            value={formData[field.name]}
                             onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.tel} 
+                            required={field.required}
+                            style={{
+                                width: '100%',
+                                padding: '12px',
+                                borderRadius: '6px',
+                                border: '1px solid #ddd',
+                                fontSize: '1rem',
+                                backgroundColor: 'white'
+                            }}
                         />
-                    </div>
+                    )}
                 </div>
-                <div className="col-lg-12">
-                    <div className="mil-input-frame mil-dark-input mil-up mil-mb-30">
-                        <label className="mil-upper"><span>Message</span><span className="mil-required">*</span></label>
-                        <textarea 
-                            placeholder="Enter Your Message Here"
-                            name="message" 
-                            required="required"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.message} 
-                        />
-                    </div>
-                </div>
-                <div className="col-lg-12">
-                    <div className="mil-checbox-frame mil-dark-input mil-up mil-mb-30">
-                        <input defaultChecked className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" name="agree" required />
-                        <label htmlFor="checkbox-1" className="mil-text-sm">Accept the terms and conditions of personal data.</label>
-                    </div>
-                </div>
-                <div className="col-lg-12">
-                    <button type="submit" className="mil-button mil-up">Send Now</button>
-                </div>
-            </div>
-            <div className="form-status alert-success mil-mb-90" id="contactFormStatus" style={{"display": "none"}} />
+            ))}
+
+            <button 
+                type="submit"
+                style={{
+                    backgroundColor: '#C2D720',
+                    color: '#262626',
+                    padding: '14px 28px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    fontWeight: '600',
+                    fontSize: '0.9rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                }}
+            >
+                {formType === 'careers' ? 'Submit Application' : 
+                 formType === 'acquisition' ? 'Submit Inquiry' : 
+                 'Send Message'}
+                <svg 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                >
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
         </form>
-        )}
-        </Formik>
-        {/* contact form end */}
-    </>
-  );
+    );
 };
+
 export default ContactForm;

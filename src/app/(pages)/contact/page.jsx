@@ -66,7 +66,7 @@ const Contact = () => {
                                     color: '#666',
                                     marginBottom: '20px'
                                 }}>Interested in joining the team? Browse our current openings.</p>
-                                <Link href="/team" style={{
+                                <Link href="/join" style={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
                                     backgroundColor: '#C2D720',
@@ -145,69 +145,52 @@ const Contact = () => {
 
             {/* map and locations */}
             <div style={{ 
-                display: 'flex', 
                 width: '100%', 
-                height: '600px',
-                borderTop: '1px solid #eee',
-                background: '#fff'
+                height: '700px',
+                background: 'linear-gradient(to bottom, #fff 0%, #f8f9fa 100%)',
+                position: 'relative',
+                padding: '40px 0 0'
             }}>
-                <div style={{ 
-                    flex: '0 0 320px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: '#f8f9fa',
-                    borderRight: '1px solid #eee',
-                    boxShadow: '4px 0 20px rgba(0,0,0,0.03)'
+                {/* Title Section */}
+                <div style={{
+                    textAlign: 'center',
+                    marginBottom: '30px',
+                    position: 'relative',
+                    zIndex: 2
                 }}>
+                    <h2 style={{
+                        fontSize: '2.5rem',
+                        fontWeight: '600',
+                        color: '#262626',
+                        marginBottom: '15px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px'
+                    }}>Our Locations</h2>
                     <div style={{
-                        padding: '30px 35px 20px',
-                        borderBottom: '1px solid #eee',
-                        background: 'white'
-                    }}>
-                        <h6 style={{ 
-                            fontSize: '0.9rem',
-                            fontWeight: '600',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            color: '#262626',
-                            margin: 0,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px'
-                        }}>
-                            <svg 
-                                width="16" 
-                                height="16" 
-                                viewBox="0 0 24 24" 
-                                fill="none" 
-                                stroke="#C2D720" 
-                                strokeWidth="2" 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round"
-                            >
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            Our Locations
-                        </h6>
-                    </div>
-                    <div className={styles.locationsList}>
-                        {locations.map((location, index) => (
-                            <LocationCard 
-                                key={index}
-                                city={location.city}
-                                state={location.state}
-                                url={location.url}
-                            />
-                        ))}
-                    </div>
+                        width: '60px',
+                        height: '3px',
+                        background: '#C2D720',
+                        margin: '0 auto',
+                        borderRadius: '2px'
+                    }}></div>
                 </div>
-                <div style={{ flex: '1', position: 'relative', background: '#242424' }}>
+
+                {/* Map Container */}
+                <div style={{ 
+                    width: '100%', 
+                    height: 'calc(100% - 100px)',
+                    background: '#242424',
+                    position: 'relative',
+                    borderRadius: '20px 20px 0 0',
+                    overflow: 'hidden',
+                    boxShadow: '0 -10px 30px rgba(0,0,0,0.05)'
+                }}>
                     <USMap locations={locations} />
+                    {/* Gradient Overlays */}
                     <div style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(45deg, rgba(36,36,36,0.4) 0%, rgba(36,36,36,0.1) 100%)',
+                        background: 'radial-gradient(circle at center, rgba(36,36,36,0.1) 0%, rgba(36,36,36,0.4) 100%)',
                         pointerEvents: 'none',
                         zIndex: 1
                     }}></div>
@@ -216,8 +199,8 @@ const Contact = () => {
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        height: '100px',
-                        background: 'linear-gradient(0deg, rgba(36,36,36,0.8) 0%, rgba(36,36,36,0) 100%)',
+                        height: '150px',
+                        background: 'linear-gradient(0deg, rgba(36,36,36,0.9) 0%, rgba(36,36,36,0) 100%)',
                         pointerEvents: 'none',
                         zIndex: 1
                     }}></div>
@@ -226,8 +209,8 @@ const Contact = () => {
                         top: 0,
                         left: 0,
                         right: 0,
-                        height: '100px',
-                        background: 'linear-gradient(180deg, rgba(36,36,36,0.8) 0%, rgba(36,36,36,0) 100%)',
+                        height: '150px',
+                        background: 'linear-gradient(180deg, rgba(36,36,36,0.9) 0%, rgba(36,36,36,0) 100%)',
                         pointerEvents: 'none',
                         zIndex: 1
                     }}></div>

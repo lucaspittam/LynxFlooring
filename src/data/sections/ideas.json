@@ -3,8 +3,8 @@
     "subtitle": "Our Purpose",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse ultrices gravida.",
     "button": {
-        "link": "/projects",
-        "label": "View Our Companies"
+        "link": "/join",
+        "label": "Join Our Team Today"
     },
     "items": [
         {
