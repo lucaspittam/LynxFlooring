@@ -162,7 +162,7 @@ const DefaultFooter = () => {
                                     <i className="fas fa-phone" style={{ color: '#C2D720' }}></i>
                                 </div>
                                 <div>
-                                    <p style={{ margin: 0, color: '#999' }}>1 800 847 7978</p>
+                                    <p style={{ margin: 0, color: '#999' }}>(416) 323-3512</p>
                                 </div>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>

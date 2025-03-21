@@ -107,7 +107,7 @@ const Contact = () => {
                                             color: '#262626',
                                             margin: 0,
                                             fontWeight: '500'
-                                        }}>1 800 847 7978</p>
+                                        }}>(416) 323-3512</p>
                                     </div>
                                     <div>
                                         <h6 style={{ 
