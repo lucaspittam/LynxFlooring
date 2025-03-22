@@ -2,7 +2,7 @@
 title: 'Shehadi Commercial Flooring'
 category: 'Partner'
 category_slug: 'partner'
-image: '/img/photo/3.jpg'
+image: 'img/companies/5.png'
 orientation: 'square'
 location: 'Fairfield, NJ'
 description: 'Shehadi Commercial Flooring is a leading commercial flooring contractor serving the New Jersey and New York metropolitan areas, providing comprehensive flooring solutions for commercial spaces.'

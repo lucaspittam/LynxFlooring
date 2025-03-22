@@ -2,7 +2,7 @@
 title: 'Flooring Solutions'
 category: 'Partner'
 category_slug: 'partner'
-image: '/img/photo/1.jpg'
+image: 'img/companies/4.png'
 orientation: 'square'
 location: 'Livermore, CA'
 description: 'Flooring Solutions is a leading commercial flooring contractor serving the Livermore and Greater Bay Area, specializing in innovative flooring solutions for various commercial spaces.'

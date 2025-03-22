@@ -2,7 +2,7 @@
 title: 'G&W Commercial Interiors'
 category: 'Partner'
 category_slug: 'partner'
-image: '/img/photo/2.jpg'
+image: 'img/companies/6.png'
 orientation: 'square'
 location: 'Kent, WA'
 description: 'G&W Commercial Interiors is a premier commercial flooring contractor based in Kent, Washington, specializing in comprehensive flooring solutions and exceptional service across the Pacific Northwest.'

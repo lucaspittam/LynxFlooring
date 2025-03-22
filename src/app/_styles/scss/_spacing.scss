@@ -1,0 +1,50 @@
+// Spacing Utilities
+
+// Padding
+.mil-p-0-30 {
+    padding: 0 30px;
+}
+
+.mil-p-120-30 {
+    padding: 120px 30px;
+}
+
+// Margins
+.mil-mb-90 {
+    margin-bottom: 90px;
+}
+
+.mil-mb-60 {
+    margin-bottom: 60px;
+}
+
+.mil-mb-40 {
+    margin-bottom: 40px;
+}
+
+.mil-mb-30 {
+    margin-bottom: 30px;
+}
+
+.mil-mb-15 {
+    margin-bottom: 15px;
+}
+
+.mil-mb-10 {
+    margin-bottom: 10px;
+}
+
+// Responsive adjustments
+@media screen and (max-width: 992px) {
+    .mil-p-120-30 {
+        padding: 60px 30px;
+    }
+
+    .mil-mb-90 {
+        margin-bottom: 45px;
+    }
+
+    .mil-mb-60 {
+        margin-bottom: 30px;
+    }
+} 

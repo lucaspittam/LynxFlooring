@@ -56,13 +56,18 @@ const CompaniesContent = ({ companies }) => {
                             <div className={`mil-company-card ${activeCompany !== "all" ? "mil-single-view" : ""}`}>
                                 <div className="row">
                                     <div className={`${activeCompany === "all" ? "col-12" : "col-lg-5"}`}>
-                                        <div className="mil-company-image">
+                                        <div className="mil-company-image" style={{ maxHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                                             <Image
-                                                src={company.image}
+                                                src={company.image.startsWith('/') ? company.image : `/${company.image}`}
                                                 alt={company.title}
-                                                width={600}
-                                                height={400}
+                                                width={company.id === "floorsol" ? 150 : 200}
+                                                height={company.id === "floorsol" ? 100 : 150}
                                                 className="mil-company-img"
+                                                style={{ 
+                                                    objectFit: 'contain', 
+                                                    maxWidth: '100%', 
+                                                    maxHeight: company.id === "floorsol" ? '100px' : '150px'
+                                                }}
                                             />
                                         </div>
                                     </div>
@@ -91,12 +96,13 @@ const CompaniesContent = ({ companies }) => {
                                                     <div className="row g-4">
                                                         {company.projects.slice(0, 2).map((project, index) => (
                                                             <div key={index} className={`${activeCompany === "all" ? "col-6" : "col-lg-6"}`}>
-                                                                <div className="mil-project-preview">
+                                                                <div className="mil-project-preview" style={{ maxHeight: '150px', overflow: 'hidden' }}>
                                                                     <Image
-                                                                        src={project.image}
+                                                                        src={project.image.startsWith('/') ? project.image : `/${project.image}`}
                                                                         alt={project.title}
-                                                                        width={250}
-                                                                        height={150}
+                                                                        width={150}
+                                                                        height={100}
+                                                                        style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '150px' }}
                                                                     />
                                                                     <h5>{project.title}</h5>
                                                                     <p>{project.description}</p>

@@ -2,7 +2,7 @@
 title: 'Resource 4 Floors'
 category: 'Partner'
 category_slug: 'partner'
-image: '/img/photo/6.jpg'
+image: 'img/companies/1.png'
 orientation: 'square'
 location: 'Carrollton, TX'
 description: 'Resource 4 Floors is a leading commercial flooring contractor serving the Dallas-Fort Worth metroplex, specializing in comprehensive flooring solutions for commercial spaces.'

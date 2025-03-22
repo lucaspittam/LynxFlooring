@@ -2,7 +2,7 @@
 title: 'Floor Solutions'
 category: 'Partner'
 category_slug: 'partner'
-image: '/img/photo/5.jpg'
+image: 'img/companies/2.png'
 orientation: 'square'
 location: 'Portland, OR'
 description: 'Floor Solutions is a leading commercial flooring contractor serving the Pacific Northwest, specializing in innovative flooring solutions for commercial and industrial spaces.'
