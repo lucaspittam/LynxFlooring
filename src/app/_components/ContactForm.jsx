@@ -65,12 +65,6 @@ const ContactForm = ({ formType = "contact" }) => {
             required: true,
           },
           {
-            name: "companyRevenue",
-            type: "text",
-            label: "Annual Revenue",
-            required: true,
-          },
-          {
             name: "message",
             type: "textarea",
             label: "Tell us about your company",
@@ -173,7 +167,7 @@ const ContactForm = ({ formType = "contact" }) => {
                   value={formData[field.name]}
                   onChange={handleChange}
                   required={field.required}
-                  rows="4"
+                  rows={field.name === "message" && formType === "careers" ? "15" : "4"}
                   className={styles.input}
                 />
               ) : field.type === "file" ? (
