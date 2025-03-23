@@ -2,59 +2,141 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .composableMap {
   width: 100%;
   height: 100%;
-  cursor: default;
+  cursor: grab;
+  outline: none;
+}
+
+.composableMap:active {
+  cursor: grabbing;
 }
 
 .markerGroup {
   cursor: pointer;
-  transform: translate(-12px, -24px);
-  transition: all 0.3s ease;
+  transform: translate(0, 0);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .markerGroup.hovered {
-  transform: translate(-12px, -28px);
+  transform: translate(0, -4px) scale(1.1);
 }
 
 .markerGroup.selected {
-  transform: translate(-12px, -28px);
+  transform: translate(0, -6px) scale(1.2);
+  z-index: 10;
 }
 
 .markerOuter {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.markerPulse {
+  fill: none;
+  stroke: #e0f000;
+  stroke-width: 1;
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    stroke-width: 1;
+  }
+  70% {
+    opacity: 0;
+    transform: scale(3);
+    stroke-width: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+    stroke-width: 0;
+  }
+}
+
+.hitArea {
+  cursor: pointer;
+}
+
+.markerLabel {
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  opacity: 1 !important;
+  font-size: 10px;
+  fill: #ffffff;
+  transition: font-size 0.3s ease, fill 0.3s ease;
+}
+
+.markerGroup.hovered .markerLabel,
+.markerGroup.selected .markerLabel {
+  font-size: 12px;
+  fill: #e0f000;
 }
 
 .tooltip {
   position: fixed;
   transform: translateX(-50%);
-  background-color: #242424;
+  background-color: rgba(36, 36, 36, 0.95);
   color: white;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 20px;
+  border-radius: 10px;
   font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  min-width: 200px;
+  min-width: 260px;
   text-align: center;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: tooltipFade 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes tooltipFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(36, 36, 36, 0.95);
 }
 
 .markerIcon {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .markerIcon svg {
   margin-bottom: -4px;
+  filter: drop-shadow(0 0 5px rgba(194, 215, 32, 0.3));
 }
 
 .companyName {
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
   color: #c2d720;
   letter-spacing: 0.5px;
 }
@@ -62,8 +144,8 @@
 .locationText {
   color: #fff;
   opacity: 0.9;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 
 .websiteLink {
@@ -71,13 +153,105 @@
   font-size: 14px;
   color: #c2d720;
   text-decoration: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 8px;
-  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 10px;
+  margin-top: 6px;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .websiteLink:hover {
   color: #d5eb38;
+  transform: translateX(3px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.mapControls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.resetButton {
+  background-color: rgba(36, 36, 36, 0.85);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resetButton:hover {
+  background-color: rgba(36, 36, 36, 1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .tooltip {
+    min-width: 220px;
+    padding: 15px;
+    font-size: 13px;
+  }
+  
+  .companyName {
+    font-size: 16px;
+  }
+  
+  .locationText {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .websiteLink {
+    font-size: 13px;
+  }
+  
+  .mapControls {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .resetButton {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }

@@ -69,8 +69,7 @@ const Contact = () => {
                   }}
                 >
                   Have a question? We'd love to hear from you. Send us a note to
-                  get the conversation started. Especially about designing
-                  something, or something we've designed.
+                  get the conversation started.
                 </p>
                 <div
                   style={{
@@ -248,43 +247,6 @@ const Contact = () => {
           }}
         >
           <USMap locations={locations} />
-          {/* Gradient Overlays */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "radial-gradient(circle at center, rgba(36,36,36,0.1) 0%, rgba(36,36,36,0.4) 100%)",
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          ></div>
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: "150px",
-              background:
-                "linear-gradient(0deg, rgba(36,36,36,0.9) 0%, rgba(36,36,36,0) 100%)",
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          ></div>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "150px",
-              background:
-                "linear-gradient(180deg, rgba(36,36,36,0.9) 0%, rgba(36,36,36,0) 100%)",
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          ></div>
         </div>
       </div>
       {/* map and locations end */}

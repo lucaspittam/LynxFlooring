@@ -38,6 +38,7 @@ const DefaultHeader = () => {
                   width: "350px",
                   height: "auto",
                   objectFit: "contain",
+                  maxWidth: "100%",
                 }}
               />
             </Link>
