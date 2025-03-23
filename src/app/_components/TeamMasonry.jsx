@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 
 const TeamMasonry = ({ teamData = [] }) => {
   return (
@@ -16,8 +16,14 @@ const TeamMasonry = ({ teamData = [] }) => {
             <ul className="mil-social-icons">
               {member.social?.map((social, socialIndex) => (
                 <li key={socialIndex}>
-                  <a href={social.link} target="_blank" rel="noopener noreferrer">
-                    <i className={`fab fa-${social.platform.toLowerCase()}`}></i>
+                  <a
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i
+                      className={`fab fa-${social.platform.toLowerCase()}`}
+                    ></i>
                   </a>
                 </li>
               ))}
@@ -30,4 +36,3 @@ const TeamMasonry = ({ teamData = [] }) => {
 };
 
 export default TeamMasonry;
-  

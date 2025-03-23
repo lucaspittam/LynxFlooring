@@ -1,0 +1,25 @@
+{
+    "title": "Whatever is worth doing at all, is worth doing well.",
+    "subtitle": "Our Purpose",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse ultrices gravida.",
+    "button": {
+        "link": "/join",
+        "label": "Join Our Team Today"
+    },
+    "items": [
+        {
+            "icon": "/img/icons/4.svg",
+            "link": "/projects",
+            "label": "Our Companies"
+        },
+        {
+            "icon": "/img/icons/5.svg",
+            "link": "/contact",
+            "label": "Contact Us"
+        }
+    ],
+    "background": {
+        "color": "#f9f9f9",
+        "pattern": "none"
+    }
+} 

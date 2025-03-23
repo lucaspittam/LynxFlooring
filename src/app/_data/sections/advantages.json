@@ -1,0 +1,23 @@
+{
+    "title": "Why Choose <br>Lynx Flooring",
+    "subtitle": "Our Advantages",
+    "description": "We believe great flooring begins with great people. At Lynx Flooring, our dedicated team's expertise, commitment, and passion set us apart in delivering exceptional results.",
+    "items": [
+        {
+            "title": "Expert Installation",
+            "text": "Our team of certified professionals ensures flawless installation with attention to detail and precision."
+        },
+        {
+            "title": "Quality Materials",
+            "text": "We use only the highest quality flooring materials from trusted manufacturers to ensure durability and longevity."
+        },
+        {
+            "title": "Customer Service",
+            "text": "Dedicated support throughout your project, from initial consultation to final installation and beyond."
+        },
+        {
+            "title": "Warranty Protection",
+            "text": "Comprehensive warranty coverage on both materials and installation for your peace of mind."
+        }
+    ]
+} 

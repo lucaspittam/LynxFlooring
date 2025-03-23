@@ -1,0 +1,27 @@
+{
+    "title": "Benefits of Choosing Lynx",
+    "subtitle": "Why Work With Us",
+    "description": "Partnering with Lynx Flooring brings numerous advantages to your flooring project.",
+    "items": [
+        {
+            "icon": "/img/icons/10.svg",
+            "title": "Time Efficiency",
+            "text": "Our streamlined processes and experienced teams ensure your project is completed on schedule."
+        },
+        {
+            "icon": "/img/icons/11.svg",
+            "title": "Cost Savings",
+            "text": "Our industry relationships and volume purchasing power translate to competitive pricing."
+        },
+        {
+            "icon": "/img/icons/12.svg",
+            "title": "Quality Assurance",
+            "text": "Rigorous quality control standards ensure exceptional results that stand the test of time."
+        },
+        {
+            "icon": "/img/icons/13.svg",
+            "title": "Expert Guidance",
+            "text": "Our flooring specialists provide professional advice to help you make informed decisions."
+        }
+    ]
+} 

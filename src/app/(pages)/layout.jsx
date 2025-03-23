@@ -1,9 +1,7 @@
 import Header from "@layouts/headers/Index";
 import Footer from "@layouts/footers/Index";
 
-const PagesLayouts = ({
-  children
-}) => {
+const PagesLayouts = ({ children }) => {
   return (
     <>
       <Header layout={"default"} />

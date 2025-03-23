@@ -1,0 +1,27 @@
+{
+    "title": "Our Features",
+    "subtitle": "What Sets Us Apart",
+    "description": "At Lynx Flooring, we differentiate ourselves through exceptional service, quality products, and expert installation.",
+    "items": [
+        {
+            "icon": "/img/icons/1.svg",
+            "title": "Premium Materials",
+            "text": "We source only the highest quality flooring materials from trusted manufacturers."
+        },
+        {
+            "icon": "/img/icons/2.svg",
+            "title": "Expert Installation",
+            "text": "Our certified installation teams ensure precise and flawless results every time."
+        },
+        {
+            "icon": "/img/icons/3.svg",
+            "title": "Nationwide Service",
+            "text": "With locations across the country, we provide consistent quality service nationwide."
+        },
+        {
+            "icon": "/img/icons/4.svg",
+            "title": "Comprehensive Warranty",
+            "text": "We stand behind our work with extensive warranty protection for your peace of mind."
+        }
+    ]
+} 

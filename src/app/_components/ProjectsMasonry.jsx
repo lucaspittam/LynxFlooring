@@ -18,9 +18,9 @@ const ProjectsMasonry = ({ projects, categories }) => {
         itemSelector: ".mil-grid-item",
         percentPosition: true,
         masonry: {
-          columnWidth: '.grid-sizer'
+          columnWidth: ".grid-sizer",
         },
-        transitionDuration: '0.5s',
+        transitionDuration: "0.5s",
       });
     }
   }, [isClient]);
@@ -61,12 +61,19 @@ const ProjectsMasonry = ({ projects, categories }) => {
     <>
       <div className="mil-filter mil-up mil-mb-90">
         <div className="mil-filter-links">
-          <a href="#" data-filter="*" className="mil-current" onClick={(e) => handleFilterKeyChange("*", e)}>All</a>
+          <a
+            href="#"
+            data-filter="*"
+            className="mil-current"
+            onClick={(e) => handleFilterKeyChange("*", e)}
+          >
+            All
+          </a>
           {categories?.map((item, key) => (
-            <a 
-              href="#" 
-              data-filter={`${item.slug}`} 
-              key={`project-filter-${key}`} 
+            <a
+              href="#"
+              data-filter={`${item.slug}`}
+              key={`project-filter-${key}`}
               onClick={(e) => handleFilterKeyChange(item.slug, e)}
             >
               {item.name}
@@ -78,8 +85,8 @@ const ProjectsMasonry = ({ projects, categories }) => {
       <div className="row mil-portfolio-grid">
         <div className="grid-sizer"></div>
         {projects?.map((item, key) => (
-          <div 
-            className={`col-lg-6 mil-grid-item ${item.category_slug}`} 
+          <div
+            className={`col-lg-6 mil-grid-item ${item.category_slug}`}
             key={`project-item-${key}`}
           >
             <a href={item.link} className="mil-portfolio-item mil-mb-60">
@@ -92,7 +99,17 @@ const ProjectsMasonry = ({ projects, categories }) => {
                   <h4>{item.title}</h4>
                 </div>
                 <div className="mil-link mil-icon-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
                   </svg>
@@ -107,4 +124,3 @@ const ProjectsMasonry = ({ projects, categories }) => {
 };
 
 export default ProjectsMasonry;
-  

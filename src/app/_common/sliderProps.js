@@ -51,12 +51,12 @@ export const SliderProps = {
     watchSlidesProgress: true,
     loopedSlides: 6,
     breakpoints: {
-        768: {
-            slidesPerView: 2,
-        },
-        992: {
-            slidesPerView: 4,
-        }
+      768: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 4,
+      },
     },
   },
   milBannerSlider: {
@@ -64,19 +64,19 @@ export const SliderProps = {
     spaceBetween: 30,
     speed: 800,
     autoplay: {
-        delay: 5000,
+      delay: 5000,
     },
-    effect: 'fade',
+    effect: "fade",
     parallax: true,
     loop: true,
     navigation: {
-        prevEl: '.mil-banner-prev',
-        nextEl: '.mil-banner-next',
+      prevEl: ".mil-banner-prev",
+      nextEl: ".mil-banner-next",
     },
     pagination: {
-        el: '.mil-banner-pagination',
-        type: 'bullets',
-        clickable: true,
+      el: ".mil-banner-pagination",
+      type: "bullets",
+      clickable: true,
     },
   },
   milBannerSlider2: {
@@ -84,19 +84,19 @@ export const SliderProps = {
     spaceBetween: 30,
     speed: 800,
     autoplay: {
-        delay: 5000,
+      delay: 5000,
     },
-    effect: 'fade',
+    effect: "fade",
     parallax: true,
     loop: true,
     navigation: {
-        prevEl: '.mil-banner-prev',
-        nextEl: '.mil-banner-next',
+      prevEl: ".mil-banner-prev",
+      nextEl: ".mil-banner-next",
     },
     pagination: {
-        el: '.mil-banner-pagination',
-        type: 'bullets',
-        clickable: true,
+      el: ".mil-banner-pagination",
+      type: "bullets",
+      clickable: true,
     },
   },
   milProcessSlider: {
@@ -105,36 +105,36 @@ export const SliderProps = {
     speed: 800,
     parallax: true,
     navigation: {
-        prevEl: '.mil-process-prev',
-        nextEl: '.mil-process-next',
+      prevEl: ".mil-process-prev",
+      nextEl: ".mil-process-next",
     },
     pagination: {
-        el: '.mil-banner-pagination',
-        type: 'bullets',
-        clickable: true,
+      el: ".mil-banner-pagination",
+      type: "bullets",
+      clickable: true,
     },
   },
   milReviewsSlider: {
     slidesPerView: 1,
     spaceBetween: 30,
     speed: 800,
-    effect: 'fade',
+    effect: "fade",
     parallax: true,
     navigation: {
-        prevEl: '.mil-process-prev',
-        nextEl: '.mil-process-next',
+      prevEl: ".mil-process-prev",
+      nextEl: ".mil-process-next",
     },
     pagination: {
-        el: '.mil-banner-pagination',
-        type: 'bullets',
-        clickable: true,
+      el: ".mil-banner-pagination",
+      type: "bullets",
+      clickable: true,
     },
   },
   milIllustrationSlider: {
     slidesPerView: 1,
     spaceBetween: 30,
     speed: 800,
-    effect: 'fade',
+    effect: "fade",
     parallax: true,
     loop: true,
     autoplay: {
@@ -142,8 +142,8 @@ export const SliderProps = {
       disableOnInteraction: false,
     },
     navigation: {
-        prevEl: '.mil-illustration-prev',
-        nextEl: '.mil-illustration-next',
+      prevEl: ".mil-illustration-prev",
+      nextEl: ".mil-illustration-next",
     },
-  }
+  },
 };

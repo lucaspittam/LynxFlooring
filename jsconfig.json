@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@components/*": ["./src/app/_components/*"],
       "@common/*": ["./src/app/_common/*"],
       "@styles/*": ["./src/app/_styles/*"],
-      "@components/*": ["./src/app/_components/*"],
+      "@appComponents/*": ["./src/app/_components/*"],
       "@layouts/*": ["./src/app/_layouts/*"],
-      "@library/*": ["./src/app/_lib/*"],
-      "@data/*": ["./src/data/*"],
+      "@lib/*": ["./src/app/_lib/*"],
+      "@data/*": ["./src/app/_data/*"],
+      "@sections/*": ["./src/app/_components/sections/*"],
+      "@sliders/*": ["./src/app/_components/sliders/*"]
     }
   }
 }

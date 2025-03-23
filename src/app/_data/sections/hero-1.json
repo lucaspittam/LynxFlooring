@@ -1,0 +1,26 @@
+{
+    "bg_image": "/img/photo/1.jpg",
+    "title": "Great People<br/><span class=\"mil-accent\">Quality Floors</span><br/>Nationwide <br/> Service",
+    "numbers": [
+        {
+            "value": "2000",
+            "afterValue": "+",
+            "label": "Employees"
+        },
+        {
+            "value": "6",
+            "afterValue": "k+",
+            "label": "Companies"
+        },
+        {
+            "value": "11",
+            "afterValue": "+",
+            "label": "Years <br/>Experience"
+        },
+        {
+            "value": "150",
+            "afterValue": "+",
+            "label": "Million <br/>In <br/>Revenue"
+        }
+    ]
+} 

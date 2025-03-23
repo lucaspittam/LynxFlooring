@@ -1,0 +1,30 @@
+{
+    "title": "Our Recent Projects",
+    "subtitle": "Latest Work",
+    "items": [
+        {
+            "image": "/img/projects/1.jpg",
+            "title": "Commercial Office Flooring",
+            "category": "Commercial",
+            "link": "/projects"
+        },
+        {
+            "image": "/img/projects/2.jpg",
+            "title": "Luxury Residential Installation",
+            "category": "Residential",
+            "link": "/projects"
+        },
+        {
+            "image": "/img/projects/3.jpg",
+            "title": "Retail Space Renovation",
+            "category": "Commercial",
+            "link": "/projects"
+        },
+        {
+            "image": "/img/projects/4.jpg",
+            "title": "Healthcare Facility Flooring",
+            "category": "Healthcare",
+            "link": "/projects"
+        }
+    ]
+} 

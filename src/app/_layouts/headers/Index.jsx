@@ -9,9 +9,7 @@ const Header = ({ layout }) => {
       return;
 
     default:
-      return (
-        <HeaderLayoutDefault />
-      );
+      return <HeaderLayoutDefault />;
   }
 };
 export default Header;

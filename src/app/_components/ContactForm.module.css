@@ -1,0 +1,85 @@
+.form {
+  margin: 0;
+  padding: 0;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  background-color: white;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  height: auto;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(194, 215, 32, 0.1);
+  border-radius: 8px;
+}
+
+.successMessage h3 {
+  color: #262626;
+  margin-bottom: 10px;
+}
+
+.successMessage p {
+  color: #666;
+}
+
+.errorMessage {
+  margin-bottom: 15px;
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.1);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.submitButton {
+  background-color: #c2d720;
+  color: #262626;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0 0;
+}
+
+.submitting {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: default;
+}
+
+.buttonIcon {
+  transition: transform 0.2s ease;
+}
+
+.submitButton:hover:not(.submitting) .buttonIcon {
+  transform: translateX(4px);
+}

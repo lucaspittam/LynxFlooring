@@ -7,7 +7,7 @@ export const metadata = {
     template: "%s | " + AppData.settings.siteName,
   },
   description: AppData.settings.siteDescription,
-}
+};
 
 export default function Search() {
   return (

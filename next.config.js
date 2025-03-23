@@ -4,6 +4,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: ['./src'],
   },
+  // Disable unnecessary features that might cause issues
+  experimental: {
+    esmExternals: true,
+  },
   // Configure webpack to handle CSS properly
   webpack: (config) => {
     // Existing CSS rule

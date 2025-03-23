@@ -18,7 +18,7 @@ export const metadata = {
     template: "%s | " + AppData.settings.siteName,
   },
   description: AppData.settings.siteDescription,
-}
+};
 
 async function Home1() {
   const projects = await getAllProjects();
@@ -36,7 +36,7 @@ async function Home1() {
       <HowWeWorkSection />
     </>
   );
-};
+}
 export default Home1;
 
 async function getAllProjects() {

@@ -2,11 +2,11 @@ import React from "react";
 
 import AppData from "@data/app.json";
 
-import AboutSection from "@components/sections/About";
-import IdeasSection from "@components/sections/Ideas";
-import AdvantagesSection from "@components/sections/Advantages";
-import LatestProjectsSection from "@components/sections/LatestProjects";
-import HowWeWorkSection from "@components/sections/HowWeWork";
+import AboutSection from "@appComponents/sections/About";
+import IdeasSection from "@appComponents/sections/Ideas";
+import AdvantagesSection from "@appComponents/sections/Advantages";
+import LatestProjectsSection from "@appComponents/sections/LatestProjects";
+import HowWeWorkSection from "@appComponents/sections/HowWeWork";
 
 export const metadata = {
   title: {
@@ -14,7 +14,7 @@ export const metadata = {
     template: "%s | " + AppData.settings.siteName,
   },
   description: AppData.settings.siteDescription,
-}
+};
 
 export default function About() {
   return (

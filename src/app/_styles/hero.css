@@ -1,117 +1,122 @@
 .mil-dynamic-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .mil-shape-1,
 .mil-shape-2,
 .mil-shape-3 {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.15;
-    animation: float 20s infinite ease-in-out;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  animation: float 20s infinite ease-in-out;
 }
 
 .mil-shape-1 {
-    width: 600px;
-    height: 600px;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
-    top: -200px;
-    left: -100px;
-    animation-delay: 0s;
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
 }
 
 .mil-shape-2 {
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(45deg, #A8E6CF, #FFD3B6);
-    top: 50%;
-    right: -150px;
-    animation-delay: -5s;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(45deg, #a8e6cf, #ffd3b6);
+  top: 50%;
+  right: -150px;
+  animation-delay: -5s;
 }
 
 .mil-shape-3 {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(45deg, #FF8B94, #FFD93D);
-    bottom: -100px;
-    left: 50%;
-    animation-delay: -10s;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #ff8b94, #ffd93d);
+  bottom: -100px;
+  left: 50%;
+  animation-delay: -10s;
 }
 
 .mil-gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 2;
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-    25% {
-        transform: translate(50px, 50px) rotate(90deg);
-    }
-    50% {
-        transform: translate(0, 100px) rotate(180deg);
-    }
-    75% {
-        transform: translate(-50px, 50px) rotate(270deg);
-    }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(50px, 50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(0, 100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50px, 50px) rotate(270deg);
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Ensure content stays above the dynamic background */
 .mil-banner-content {
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
 }
 
 /* Enhance the overlay effect */
 .mil-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    mix-blend-mode: multiply;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mix-blend-mode: multiply;
 }
 
 /* Ensure counter stats display properly */
 .mil-counter-frame {
-    display: block;
-    visibility: visible !important;
-    opacity: 1 !important;
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .mil-counter {
-    font-weight: bold;
-    display: inline-block;
+  font-weight: bold;
+  display: inline-block;
 }
 
 /* Apply animation to counter frames */
 .mil-counter-frame.mil-up {
-    animation: fadeInUp 0.8s forwards;
-    animation-delay: calc(0.2s * var(--index, 1));
-} 
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: calc(0.2s * var(--index, 1));
+}
