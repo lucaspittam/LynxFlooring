@@ -1,7 +1,7 @@
 {
     "image": {
         "url": "/img/photo/2.jpg",
-        "alt": "img"
+        "alt": "Lynx - Powerful and Strategic"
     },
     "number": {
         "value": "18",
@@ -9,7 +9,7 @@
     },
     "title": "Our Values",
     "subtitle": "About Lynx",
-    "description": "At Lynx, our values guide every investment and business decision. We take a long-term, buy-and-hold approach, building lasting partnerships based on trust, respect, and a commitment to each company’s legacy. Unlike traditional private equity firms, we invest in both businesses and the people behind them, leveraging our expertise to drive growth and ensure lasting success. At Lynx, we don’t just invest—we partner for the future.",
+    "description": "At Lynx, our values guide every investment and business decision. We take a long-term, buy-and-hold approach, building lasting partnerships based on trust, respect, and a commitment to each company's legacy. Unlike traditional private equity firms, we invest in both businesses and the people behind them, leveraging our expertise to drive growth and ensure lasting success. At Lynx, we don't just invest—we partner for the future.",
     "button": {
         "link": "https://www.lynxequity.com/",
         "label": "Learn More"

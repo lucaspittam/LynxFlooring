@@ -14,9 +14,47 @@ const CompaniesContent = ({ companies }) => {
         "flooring-solutions": "Flooring Solutions",
         "gwc-interiors": "G&W Commercial Interiors",
         "shehadi": "Shehadi Commercial Flooring",
-        "mw-floor": "M&W Floor Companies",
+        "mw-floor": "Midwest Floor Covering",
         "floorsol": "Floor Solutions",
         "resource4floors": "Resource 4 Floors"
+    };
+
+    // Company website URLs
+    const companyWebsites = {
+        "flooring-solutions": "https://www.flooring-solutions.com/",
+        "gwc-interiors": "https://www.gwcinteriors.com/",
+        "shehadi": "https://www.shehadi.com",
+        "mw-floor": "https://www.mwfloor.com/",
+        "floorsol": "https://www.floorsol.com",
+        "resource4floors": "https://www.resource4floors.com"
+    };
+
+    // Company highlights
+    const companyHighlights = {
+        "flooring-solutions": {
+            yearsFounded: 1990,
+            highlight: "Bay Area's Premier Commercial Flooring Provider"
+        },
+        "gwc-interiors": {
+            yearsFounded: 2000,
+            highlight: "Pacific Northwest's Trusted Flooring Partner"
+        },
+        "shehadi": {
+            yearsFounded: 1900,
+            highlight: "85+ Years of Excellence in Commercial Flooring"
+        },
+        "mw-floor": {
+            yearsFounded: 1990,
+            highlight: "Midwest's Leading Sports Flooring Specialist"
+        },
+        "floorsol": {
+            yearsFounded: 2005,
+            highlight: "Innovation in Commercial & Industrial Flooring"
+        },
+        "resource4floors": {
+            yearsFounded: 1980,
+            highlight: "South Florida's Single Source for Sustainable Floor Covering"
+        }
     };
 
     // Filter companies based on selected company
@@ -56,7 +94,14 @@ const CompaniesContent = ({ companies }) => {
                             <div className={`mil-company-card ${activeCompany !== "all" ? "mil-single-view" : ""}`}>
                                 <div className="row">
                                     <div className={`${activeCompany === "all" ? "col-12" : "col-lg-5"}`}>
-                                        <div className="mil-company-image" style={{ maxHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                                        <div className="mil-company-image" style={{ 
+                                            maxHeight: '150px', 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            justifyContent: 'center', 
+                                            overflow: 'hidden',
+                                            paddingTop: (company.id === "flooring-solutions" || company.id === "gwc-interiors") ? '20px' : '0'
+                                        }}>
                                             <Image
                                                 src={company.image.startsWith('/') ? company.image : `/${company.image}`}
                                                 alt={company.title}
@@ -70,6 +115,71 @@ const CompaniesContent = ({ companies }) => {
                                                 }}
                                             />
                                         </div>
+                                        {/* Visit Us Button and Highlights */}
+                                        {activeCompany !== "all" && companyWebsites[company.id] && (
+                                            <>
+                                                <div style={{
+                                                    textAlign: 'center',
+                                                    marginTop: '20px',
+                                                    marginBottom: '25px'
+                                                }}>
+                                                    <a
+                                                        href={companyWebsites[company.id]}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="mil-link mil-upper"
+                                                        style={{
+                                                            display: 'inline-flex',
+                                                            alignItems: 'center',
+                                                            gap: '10px',
+                                                            fontSize: '14px',
+                                                            fontWeight: '600',
+                                                            color: '#C2D720',
+                                                            textDecoration: 'none',
+                                                            transition: 'all 0.3s ease'
+                                                        }}
+                                                    >
+                                                        Visit Website
+                                                        <span className="mil-arrow">
+                                                            <img src="/img/icons/1.svg" alt="arrow" />
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                {companyHighlights[company.id] && (
+                                                    <div style={{
+                                                        textAlign: 'center',
+                                                        padding: '20px',
+                                                        background: '#f8f9fa',
+                                                        borderRadius: '12px',
+                                                        marginTop: '10px'
+                                                    }}>
+                                                        <div style={{
+                                                            fontSize: '32px',
+                                                            fontWeight: '700',
+                                                            color: '#C2D720',
+                                                            marginBottom: '5px'
+                                                        }}>
+                                                            {new Date().getFullYear() - companyHighlights[company.id].yearsFounded}
+                                                        </div>
+                                                        <div style={{
+                                                            fontSize: '14px',
+                                                            color: '#666',
+                                                            marginBottom: '15px'
+                                                        }}>
+                                                            Years of Excellence
+                                                        </div>
+                                                        <div style={{
+                                                            fontSize: '16px',
+                                                            fontWeight: '600',
+                                                            color: '#333',
+                                                            lineHeight: '1.4'
+                                                        }}>
+                                                            {companyHighlights[company.id].highlight}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
                                     </div>
                                     <div className={`${activeCompany === "all" ? "col-12" : "col-lg-7"}`}>
                                         <div className={`mil-company-content ${activeCompany !== "all" ? "mil-single-content" : ""}`}>
@@ -96,16 +206,25 @@ const CompaniesContent = ({ companies }) => {
                                                     <div className="row g-4">
                                                         {company.projects.slice(0, 2).map((project, index) => (
                                                             <div key={index} className={`${activeCompany === "all" ? "col-6" : "col-lg-6"}`}>
-                                                                <div className="mil-project-preview" style={{ maxHeight: '150px', overflow: 'hidden' }}>
-                                                                    <Image
-                                                                        src={project.image.startsWith('/') ? project.image : `/${project.image}`}
-                                                                        alt={project.title}
-                                                                        width={150}
-                                                                        height={100}
-                                                                        style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '150px' }}
-                                                                    />
-                                                                    <h5>{project.title}</h5>
-                                                                    <p>{project.description}</p>
+                                                                <div className="mil-project-preview">
+                                                                    <div className="mil-project-image-wrapper">
+                                                                        <Image
+                                                                            src={project.image.startsWith('/') ? project.image : `/${project.image}`}
+                                                                            alt={project.title}
+                                                                            width={400}
+                                                                            height={300}
+                                                                            style={{ 
+                                                                                objectFit: 'cover',
+                                                                                width: '100%',
+                                                                                height: '100%',
+                                                                                borderRadius: '12px'
+                                                                            }}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="mil-project-info">
+                                                                        <h5>{project.title}</h5>
+                                                                        <p>{project.description}</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         ))}

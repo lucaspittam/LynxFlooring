@@ -2,6 +2,11 @@
     "settings": {
         "siteName": "Lynx Flooring",
         "siteDescription": "Lynx Flooring Website",
+        "basinForms": {
+            "contact": "https://usebasin.com/f/94ad88000b98",
+            "careers": "https://usebasin.com/f/54c8da38ddc9",
+            "acquisition": "https://usebasin.com/f/46dd994224ed"
+        },
         "formspreeURL": "https://formspree.io/f/your_api_key",
         "mailchimp": {
             "url": "",

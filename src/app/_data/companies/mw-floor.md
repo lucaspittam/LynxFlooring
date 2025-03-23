@@ -13,10 +13,10 @@ services:
   - 'Maintenance Services'
 projects:
   - title: 'Papillion La Vista High School Gymnasium'
-    image: '/img/photo/10.jpg'
+    image: '/img/photo/10.jpeg'
     description: 'Installed high-performance athletic flooring to enhance safety and performance.'
   - title: 'Corporate Office Renovation'
-    image: '/img/photo/11.jpg'
+    image: '/img/photo/11.jpeg'
     description: 'Provided durable and stylish flooring solutions for a modern office space.'
 contact:
   address: '3725 Touzalin Ave, Lincoln, NE 68507'

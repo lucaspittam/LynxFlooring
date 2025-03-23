@@ -4,8 +4,8 @@ category: 'Partner'
 category_slug: 'partner'
 image: 'img/companies/1.png'
 orientation: 'square'
-location: 'Carrollton, TX'
-description: 'Resource 4 Floors is a leading commercial flooring contractor serving the Dallas-Fort Worth metroplex, specializing in comprehensive flooring solutions for commercial spaces.'
+location: 'Fort Lauderdale, FL'
+description: 'Resource 4 Floors is a leading commercial flooring contractor serving South Florida, providing superior customer service and comprehensive flooring solutions for commercial spaces.'
 services:
   - 'Commercial Flooring'
   - 'Floor Preparation'
@@ -13,15 +13,15 @@ services:
   - 'Maintenance Programs'
 projects:
   - title: 'Corporate Office'
-    image: '/img/photo/14.jpg'
+    image: '/img/photo/14.webp'
     description: 'Complete corporate office flooring solutions'
   - title: 'Educational Complex'
-    image: '/img/photo/15.jpg'
+    image: '/img/photo/15.webp'
     description: 'Specialized education facility flooring'
 contact:
-  address: '1212 Timbercreek Drive, Carrollton, TX 75006'
-  phone: '(972) 416-7030'
+  address: '3350 Burris Rd, Fort Lauderdale, FL 33314'
+  phone: '(954) 581-8115'
   email: 'info@resource4floors.com'
 ---
 
-Resource 4 Floors has been providing exceptional commercial flooring services in the Dallas-Fort Worth area since 1981. Their experienced team delivers comprehensive flooring solutions with a commitment to quality and customer satisfaction. 
+Resource 4 Floors has been providing exceptional commercial flooring services in South Florida since 1980. Their experienced team delivers comprehensive flooring solutions with a commitment to quality and customer satisfaction, serving a broad customer base including end users, general contractors, designers, architects, and property managers. 

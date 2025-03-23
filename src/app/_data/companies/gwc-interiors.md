@@ -16,7 +16,7 @@ services:
   - 'Floor Care'
 projects:
   - title: 'Office Building - Stadium Seating & Polished Concrete'
-    image: '/img/photo/6.jpg'
+    image: '/img/photo/6.png'
     description: 'Installation of hardwood stadium seating and polished concrete floors, demonstrating versatile capabilities and superior craftsmanship.'
   - title: 'Hospital Surgical Suite Flooring Replacement'
     image: '/img/photo/7.jpg'

@@ -2,6 +2,7 @@
 
 import { SliderProps } from "@common/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ModernBackground from "../../_common/modernBackgrounds";
 
 import Data from '@data/sliders/partners';
 
@@ -18,7 +19,8 @@ const PartnersSlider = ( { bgStyle } ) => {
         }
         
         <div className="container mil-p-120-120">
-            <div className="mil-background-grid mil-softened" />
+            {/* Modern background effect */}
+            <ModernBackground type="stripes" softened={true} />
             
             <Swiper
                 {...SliderProps.milInfiniteSlider}

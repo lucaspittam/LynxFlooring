@@ -1,5 +1,7 @@
 import '@styles/scss/style.scss';
 import "./globals.css";
+import "./_styles/hero.css";
+import "./_styles/modern-backgrounds.css";
 
 // Import CSS files using relative paths to ensure proper compilation
 import "./_styles/css/plugins/bootstrap-grid.css";

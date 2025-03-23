@@ -1,0 +1,550 @@
+/* Modern Background Effects */
+
+/* Base styling for all section backgrounds */
+.mil-modern-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.2; /* Reduced opacity */
+}
+
+/* Ensure section position is relative to contain the backgrounds */
+section, .mil-partners, .container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Common section styling for cohesive look */
+section {
+    position: relative;
+    background-color: #ffffff;
+    transition: background-color 0.5s ease;
+}
+
+/* Diagonal Lines Pattern - used as the base for all sections */
+.mil-diagonal-pattern {
+    background-image: linear-gradient(45deg, rgba(var(--accent-1-rgb), 0.04) 25%, transparent 25%);
+    background-size: 30px 30px;
+}
+
+/* Dotted Pattern as secondary element */
+.mil-dotted-pattern {
+    background-image: radial-gradient(rgba(var(--accent-1-rgb), 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Gradient Wave as secondary element */
+.mil-gradient-wave {
+    background: linear-gradient(135deg, 
+        rgba(var(--accent-1-rgb), 0.02) 0%, 
+        rgba(var(--accent-1-rgb), 0.04) 50%, 
+        rgba(var(--accent-1-rgb), 0.02) 100%);
+    background-size: 200% 200%;
+}
+
+/* Subtle version for secondary patterns */
+.mil-subtle {
+    opacity: 0.2;
+}
+
+/* Section transition overlay - extremely subtle gradient at section boundaries */
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%);
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Gradient Overlay for transitions between sections - removed opacity */
+.mil-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Removed the overlay by setting to 0 */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Section connector - adjusted for better transitions without overlay */
+.mil-section-connector {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 2;
+    pointer-events: none;
+    background: none; /* Removed gradient background */
+    opacity: 0;
+}
+
+/* Floating Particles */
+.mil-particles {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.mil-particle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--accent-1-rgb), 0.1) 0%, rgba(var(--accent-1-rgb), 0) 70%);
+}
+
+.mil-particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+}
+
+.mil-particle:nth-child(2) {
+    top: 40%;
+    left: 30%;
+    width: 150px;
+    height: 150px;
+}
+
+.mil-particle:nth-child(3) {
+    top: 70%;
+    left: 70%;
+    width: 180px;
+    height: 180px;
+}
+
+.mil-particle:nth-child(4) {
+    top: 30%;
+    left: 60%;
+    width: 120px;
+    height: 120px;
+}
+
+.mil-particle:nth-child(5) {
+    top: 50%;
+    left: 80%;
+    width: 160px;
+    height: 160px;
+}
+
+.mil-particle-float {
+    animation: particleFloat 10s infinite ease-in-out;
+}
+
+.mil-delay-1 {
+    animation-delay: 1s;
+}
+
+.mil-delay-2 {
+    animation-delay: 2s;
+}
+
+.mil-delay-3 {
+    animation-delay: 3s;
+}
+
+.mil-delay-4 {
+    animation-delay: 4s;
+}
+
+/* Subtle Noise Texture */
+.mil-noise-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.04; /* Reduced opacity */
+    filter: contrast(200%) brightness(150%);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    left: 0;
+    width: 100vw;
+}
+
+/* Modern Stripes */
+.mil-modern-stripes {
+    background-image: linear-gradient(0deg, transparent 24%, rgba(84, 84, 84, 0.06) 25%, rgba(84, 84, 84, 0.06) 26%, transparent 27%, transparent 74%, rgba(84, 84, 84, 0.06) 75%, rgba(84, 84, 84, 0.06) 76%, transparent 77%, transparent); /* Reduced contrast */
+    background-size: 50px 50px;
+    opacity: 0.15; /* Reduced opacity */
+    left: 0;
+    width: 100vw;
+}
+
+/* Apply different patterns based on section type */
+.mil-softened .mil-modern-bg {
+    opacity: 0.15;
+}
+
+.mil-top-space .mil-modern-bg {
+    top: 100px;
+}
+
+/* New animations for Home Page Components */
+.mil-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.mil-text-reveal {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: textReveal 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.mil-link-hover .mil-arrow {
+    transition: transform 0.3s ease;
+}
+
+.mil-link-hover:hover .mil-arrow {
+    transform: translateX(10px);
+}
+
+.mil-arrow-animated {
+    animation: arrowPulse 2s infinite ease-in-out;
+}
+
+.mil-card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.mil-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.mil-rotate-on-hover {
+    transition: transform 0.5s ease;
+}
+
+.mil-rotate-on-hover:hover {
+    transform: rotate(15deg);
+}
+
+.mil-slide-up {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mil-card-hover:hover .mil-slide-up {
+    transform: translateY(-5px);
+}
+
+/* Portfolio items effects */
+.mil-portfolio-modern {
+    overflow: hidden;
+    position: relative;
+}
+
+.mil-portfolio-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mil-portfolio-modern img {
+    transition: transform 0.6s ease-out;
+}
+
+.mil-image-scale {
+    transform: scale(1.1);
+}
+
+.mil-project-descr {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mil-descr-active {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.mil-project-link {
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mil-descr-active .mil-project-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mil-arrow-sm {
+    transform: scale(0.8);
+}
+
+/* Process steps */
+.mil-process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.mil-process-item {
+    position: relative;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.mil-process-number {
+    position: absolute;
+    top: -15px;
+    left: 25px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-1);
+    color: var(--background);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.mil-process-arrow {
+    position: absolute;
+    top: 30%;
+    right: -30px;
+    width: 60px;
+    height: 20px;
+    background-image: url('/img/icons/1.svg');
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: center;
+    z-index: 2;
+}
+
+.mil-process-text {
+    color: rgba(255,255,255,0.7);
+}
+
+.mil-projects-grid {
+    margin-bottom: 40px;
+}
+
+/* About section */
+.mil-about-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mil-about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.mil-parallax-image img {
+    transition: transform 0.5s ease-out;
+}
+
+.mil-parallax-image:hover img {
+    transform: scale(1.05);
+}
+
+.mil-counter-box {
+    background-color: var(--accent-1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: floatBox 5s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes textReveal {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes arrowPulse {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes floatBox {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes gradientWave {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+@keyframes dotsScale {
+    0% { background-size: 20px 20px; }
+    100% { background-size: 25px 25px; }
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@keyframes diagonalShift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+@keyframes combinedEffect {
+    0% { 
+        background-image: linear-gradient(135deg, rgba(var(--accent-1-rgb), 0.03) 0%, rgba(var(--accent-1-rgb), 0.08) 100%);
+        background-size: 100% 100%;
+        background-position: 0% 0%;
+    }
+    100% { 
+        background-image: linear-gradient(135deg, rgba(var(--accent-1-rgb), 0.08) 0%, rgba(var(--accent-1-rgb), 0.03) 100%);
+        background-size: 120% 120%;
+        background-position: 100% 100%;
+    }
+}
+
+/* Modern Background Base Styles */
+.mil-modern-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.2; /* Reduced opacity */
+}
+
+.mil-animated-bg {
+    animation: backgroundShift 20s infinite linear;
+}
+
+.mil-diagonal-accent {
+    background-image: linear-gradient(45deg, rgba(var(--accent-1-rgb), 0.08) 25%, transparent 25%),
+                      linear-gradient(-45deg, rgba(var(--accent-1-rgb), 0.08) 25%, transparent 25%);
+    background-size: 30px 30px;
+    animation: diagonalShift 30s infinite linear;
+}
+
+.mil-wave-animate {
+    animation: gradientWave 15s ease infinite;
+}
+
+.mil-dots-animate {
+    animation: dotsScale 20s infinite alternate;
+}
+
+.mil-combined-animate {
+    animation: combinedEffect 25s infinite alternate;
+}
+
+.mil-diagonal-animate {
+    animation: diagonalShift 20s infinite linear;
+}
+
+.mil-wave-animate {
+    animation: gradientWave 15s ease infinite;
+}
+
+.mil-dots-animate {
+    animation: dotsScale 20s infinite alternate;
+}
+
+.mil-combined-animate {
+    animation: combinedEffect 25s infinite alternate;
+}
+
+.mil-diagonal-animate {
+    animation: diagonalShift 20s infinite linear;
+}
+
+/* Animation classes for advantages section */
+.mil-advantage-item {
+  opacity: 1; /* Start visible */
+  transform: translateY(0); /* Start at normal position */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* Only apply initial hidden state when JavaScript is available */
+.js-animation-ready .mil-advantage-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.mil-advantage-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation classes for process section */
+.mil-process-item {
+  opacity: 1; /* Start visible */
+  transform: translateY(0); /* Start at normal position */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* Only apply initial hidden state when JavaScript is available */
+.js-animation-ready .mil-process-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.mil-process-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Basic hover effects */
+.mil-icon-box {
+    transition: transform 0.3s ease;
+}
+
+.mil-icon-box:hover {
+    transform: translateY(-5px);
+}
+
+.mil-icon {
+    transition: transform 0.3s ease;
+}
+
+.mil-icon:hover {
+    transform: rotate(10deg);
+} 

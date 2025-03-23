@@ -13,10 +13,10 @@ services:
   - 'Moisture Mitigation'
 projects:
   - title: 'Technology Campus'
-    image: '/img/photo/12.jpg'
+    image: '/img/photo/12.jpeg'
     description: 'Advanced flooring solutions for tech facilities'
   - title: 'Industrial Facility'
-    image: '/img/photo/13.jpg'
+    image: '/img/photo/13.jpeg'
     description: 'Heavy-duty industrial flooring installation'
 contact:
   address: '7300 SW Landmark Lane, Portland, OR 97224'

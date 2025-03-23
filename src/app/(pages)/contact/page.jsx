@@ -29,7 +29,7 @@ const Contact = () => {
 
     return (
         <>
-            <PageBanner pageTitle={"We'd love to talk"} breadTitle={"Contact"} bgImage={"/img/photo/12.jpg"} />
+            <PageBanner pageTitle={"We'd love to talk"} breadTitle={"Contact"} bgImage={"/img/photo/header4.jpg"} />
 
             {/* contact */}
             <section className="mil-relative" style={{ backgroundColor: '#fff' }}>

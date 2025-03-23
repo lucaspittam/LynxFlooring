@@ -17,5 +17,9 @@
             "link": "/contact",
             "label": "Contact Us"
         }
-    ]
+    ],
+    "background": {
+        "color": "#f9f9f9",
+        "pattern": "none"
+    }
 }

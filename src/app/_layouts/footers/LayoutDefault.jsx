@@ -21,17 +21,53 @@ const DefaultFooter = () => {
                 <div className="row justify-content-between mb-5">
                     {/* Logo and About */}
                     <div className="col-lg-4 mb-4 mb-lg-0">
-                        <Link href="/" style={{ display: 'inline-block', marginBottom: '25px' }}>
-                            <img 
-                                src={AppData.footer.logo.image} 
-                                alt={AppData.footer.logo.alt} 
-                                style={{
-                                    width: '200px',
-                                    height: 'auto',
-                                    filter: 'brightness(0) invert(1)'
+                        <div style={{ 
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            gap: '15px',
+                            marginBottom: '10px'
+                        }}>
+                            <Link href="/" style={{ display: 'block' }}>
+                                <img 
+                                    src={AppData.footer.logo.image} 
+                                    alt={AppData.footer.logo.alt} 
+                                    style={{
+                                        width: '220px',
+                                        height: 'auto',
+                                        filter: 'brightness(0) invert(1)',
+                                        display: 'block'
+                                    }}
+                                />
+                            </Link>
+                            <div style={{
+                                width: '100%',
+                                height: '1px',
+                                background: 'rgba(255,255,255,0.1)',
+                                margin: '1px 0'
+                            }}></div>
+                            <a 
+                                href="https://www.starnetflooring.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                style={{ 
+                                    display: 'block',
+                                    padding: '15px 0',
+                                    marginTop: '75px'
                                 }}
-                            />
-                        </Link>
+                            >
+                                <img 
+                                    src="/img/logo/starnet_logo.png" 
+                                    alt="Starnet Flooring" 
+                                    style={{
+                                        width: '180px',
+                                        height: 'auto',
+                                        filter: 'brightness(0) invert(1)',
+                                        display: 'block'
+                                    }}
+                                />
+                            </a>
+                        </div>
                         <div style={{ display: 'flex', gap: '15px' }}>
                             <a 
                                 href={AppData.social[0].link} 

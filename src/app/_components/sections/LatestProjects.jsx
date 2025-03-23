@@ -3,6 +3,7 @@
 import Data from "@data/sections/latest-projects.json";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ModernBackground from "../../_common/modernBackgrounds";
 
 const LatestProjectsSection = ({ projects = [] }) => {
     const [isClient, setIsClient] = useState(false);
@@ -48,7 +49,10 @@ const LatestProjectsSection = ({ projects = [] }) => {
     return (
         <>
             {/* portfolio */}
-            <section>
+            <section className="mil-relative">
+                {/* Modern background effect */}
+                <ModernBackground type="dots" softened={true} />
+                
                 <div className="container-fluid">
                     <div className="row">
                         {projectRows.map((row, row_key) => (

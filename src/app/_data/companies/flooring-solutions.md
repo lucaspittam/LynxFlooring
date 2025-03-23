@@ -12,12 +12,12 @@ services:
   - 'Concrete Polishing'
   - 'Moisture Mitigation'
 projects:
-  - title: 'Commercial Office Complex'
-    image: '/img/photo/4.jpg'
-    description: 'Full-service flooring installation for modern office spaces'
-  - title: 'Healthcare Facility'
-    image: '/img/photo/5.jpg'
-    description: 'Specialized healthcare flooring solutions'
+  - title: 'Medical Flooring'
+    image: '/img/photo/4.jpeg'
+    description: 'Full-service flooring installation for medical spaces'
+  - title: 'St. Francis Yacht Club'
+    image: '/img/photo/5.jpeg'
+    description: 'Carpet flooring solutions'
 contact:
   address: '2225 De La Cruz Blvd., Santa Clara, CA 95050'
   phone: '(408) 436-8600'

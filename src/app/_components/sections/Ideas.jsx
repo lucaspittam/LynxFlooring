@@ -1,47 +1,69 @@
 import Data from "@data/sections/ideas.json";
 import Link from "next/link";
 import Image from "next/image";
+import ModernBackground from "../../_common/modernBackgrounds";
+import styles from "./Ideas.module.css";
 
 const IdeasSection = () => {
     return (
         <>
             {/* ideas */}
-            <section>
+            <section className={`mil-relative ${styles.ideasSection}`}>
                 <div className="container mil-p-0-30">
-                    <div className="mil-background-grid mil-softened" />
+                    {/* Modern background effect - only show if pattern is not 'none' */}
+                    {Data.background?.pattern !== 'none' && (
+                        <ModernBackground type={Data.background?.pattern} softened={true} />
+                    )}
 
-                    <div className="row justify-content-between">
-                        <div className="col-lg-6">
-
-                            <div>
-                                <span className="mil-suptitle mil-upper mil-up mil-mb-30" dangerouslySetInnerHTML={{__html : Data.subtitle}} />
-                                <h2 className="mil-upper mil-up mil-mb-40" dangerouslySetInnerHTML={{__html : Data.title}} />
-                                <Link href={Data.button.link} className="mil-link mil-upper mil-up">
-                                    {Data.button.label}
-                                    <span className="mil-arrow">
-                                        <Image src="/img/icons/1.svg" alt="arrow" width={12} height={12} />
+                    <div className="row justify-content-between align-items-center">
+                        <div className="col-lg-4">
+                            <div className="mil-ideas-intro">
+                                <span className={`mil-suptitle mil-upper ${styles.subtitleText}`}>
+                                    {Data.subtitle}
+                                </span>
+                                <h2 className={`mil-upper ${styles.titleReveal}`}>
+                                    {Data.title}
+                                </h2>
+                                <Link href={Data.button.link} className={styles.ctaButton}>
+                                    <span className={styles.buttonText}>{Data.button.label}</span>
+                                    <span className={styles.arrowIcon}>
+                                        <Image src="/img/icons/1.svg" alt="arrow" width={14} height={14} />
                                     </span>
                                 </Link>
                             </div>
-
                         </div>
-                        <div className="col-lg-5 mil-mt-suptitle-offset">
-
-                            <p className="mil-up mil-mb-60" dangerouslySetInnerHTML={{__html : Data.description}} />
-
-                            <div className="row">
-                                {Data.items.map((item, key) => (
-                                <div className="col-sm-4" key={`ideas-item-${key}`}>
-                                    <Link href={item.link} className="mil-icon-box mil-sm-center mil-mb-30 d-flex flex-column align-items-center text-center">
-                                        <div className="mil-icon mil-icon-accent-bg mil-up mb-3">
-                                            <Image src={item.icon} alt={item.label} width={18} height={18} />
-                                        </div>
-                                        <h6 className="mil-upper mil-up" dangerouslySetInnerHTML={{__html : item.label}} />
-                                    </Link>
+                        
+                        <div className="col-lg-7">
+                            <div className="row align-items-center">
+                                <div className="col-md-6">
+                                    <p className={styles.description}>
+                                        {Data.description}
+                                    </p>
                                 </div>
-                                ))}
+                                
+                                <div className="col-md-6">
+                                    <div className={styles.featuresWrapper}>
+                                        {Data.items.map((item, key) => (
+                                        <div className={styles.featureItem} key={`ideas-item-${key}`}>
+                                            <Link href={item.link} className={`d-flex align-items-center ${styles.cardShadow}`}>
+                                                <div className={`${styles.gradientBg} ${styles.scaleOnHover}`}>
+                                                    <Image 
+                                                        src={item.icon} 
+                                                        alt={item.label} 
+                                                        width={18} 
+                                                        height={18}
+                                                        className={styles.featureIcon}
+                                                    />
+                                                </div>
+                                                <h6 className={`mil-upper ${styles.featureTitle} ms-3`}>
+                                                    {item.label}
+                                                </h6>
+                                            </Link>
+                                        </div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

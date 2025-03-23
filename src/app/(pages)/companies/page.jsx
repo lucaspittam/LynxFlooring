@@ -16,7 +16,7 @@ export default async function Companies() {
 
     return (
         <>
-            <PageBanner pageTitle={"Our Companies"} breadTitle={"Companies"} bgImage={"/img/photo/12.jpg"} />
+            <PageBanner pageTitle={"Our Companies"} breadTitle={"Companies"} bgImage={"/img/photo/header2.jpg"} />
             <CompaniesContent companies={companies} />
         </>
     );
