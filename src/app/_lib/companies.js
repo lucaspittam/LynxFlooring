@@ -1,10 +1,69 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+// Remove remark imports and use our custom utility
+import { markdownToHtml } from "./markdown-utils";
 
 const projectsDirectory = path.join(process.cwd(), "src/app/_data/companies");
+
+// Custom renderer function to avoid the problematic dependency
+const simpleHtmlRenderer = () => {
+  return (tree) => {
+    let html = '';
+    
+    // Simple recursive function to convert nodes to HTML
+    const processNode = (node) => {
+      if (node.type === 'text') {
+        return node.value;
+      }
+      
+      if (node.type === 'paragraph') {
+        return `<p>${node.children.map(processNode).join('')}</p>`;
+      }
+      
+      if (node.type === 'heading') {
+        const level = node.depth;
+        return `<h${level}>${node.children.map(processNode).join('')}</h${level}>`;
+      }
+      
+      if (node.type === 'emphasis') {
+        return `<em>${node.children.map(processNode).join('')}</em>`;
+      }
+      
+      if (node.type === 'strong') {
+        return `<strong>${node.children.map(processNode).join('')}</strong>`;
+      }
+      
+      if (node.type === 'list') {
+        const tag = node.ordered ? 'ol' : 'ul';
+        return `<${tag}>${node.children.map(processNode).join('')}</${tag}>`;
+      }
+      
+      if (node.type === 'listItem') {
+        return `<li>${node.children.map(processNode).join('')}</li>`;
+      }
+      
+      if (node.type === 'link') {
+        const url = node.url.replace(/^(javascript|data|vbscript|file):/i, 'unsafe:');
+        return `<a href="${url}">${node.children.map(processNode).join('')}</a>`;
+      }
+      
+      // For other node types, just process children
+      if (node.children) {
+        return node.children.map(processNode).join('');
+      }
+      
+      return '';
+    };
+    
+    // Process each top-level node
+    if (tree.children) {
+      html = tree.children.map(processNode).join('');
+    }
+    
+    return html;
+  };
+};
 
 export function getSortedProjectsData() {
   // Get file names under /posts
@@ -94,11 +153,8 @@ export async function getProjectData(id) {
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    // Use remark to convert markdown into HTML string
-    const processedContent = await remark()
-      .use(html)
-      .process(matterResult.content);
-    const contentHtml = processedContent.toString();
+    // Use our custom markdown to HTML converter instead of remark
+    const contentHtml = markdownToHtml(matterResult.content);
 
     // Combine the data with the id and contentHtml
     return {

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
@@ -9,7 +11,7 @@ const nextConfig = {
     esmExternals: true,
   },
   // Configure webpack to handle CSS properly
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     // Existing CSS rule
     const rules = config.module.rules
       .find((rule) => typeof rule.oneOf === 'object')
@@ -27,6 +29,9 @@ const nextConfig = {
       }
     });
 
+    // Module alias for the problematic dependency
+    config.resolve.alias['micromark-util-sanitize-uri'] = path.resolve('./src/app/_lib/polyfills.js');
+    
     return config;
   },
 }

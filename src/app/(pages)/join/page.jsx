@@ -1,20 +1,24 @@
+"use client";
+
 import React from "react";
 import AppData from "@data/app.json";
 import PageBanner from "@components/PageBanner";
 import ContactForm from "@components/ContactForm";
 import Link from "next/link";
 
-export const metadata = {
-  title: {
-    default: "Join Us",
-  },
-  description:
-    "Join the Lynx Flooring family - Career opportunities and acquisition partnerships",
-};
-
 const JoinUs = () => {
   return (
     <>
+      <style jsx>{`
+        @media screen and (max-width: 768px) {
+          .join-intro-text {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            padding: 0 10px !important;
+            text-align: left !important;
+          }
+        }
+      `}</style>
       <PageBanner
         pageTitle={"Join Our Family"}
         breadTitle={"Join Us"}
@@ -38,6 +42,7 @@ const JoinUs = () => {
                 }}
               ></div>
               <p
+                className="join-intro-text"
                 style={{
                   fontSize: "1.1rem",
                   maxWidth: "700px",
