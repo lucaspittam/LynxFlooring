@@ -17,3 +17,175 @@ img.mfp-img {
 .mil-wrapper .swiper-container {
   overflow: visible;
 }
+
+.mil-loading-placeholder {
+  min-height: 100px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-pulse 1.5s infinite;
+}
+
+@keyframes loading-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Remove FOUC (Flash of Unstyled Content) */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Improve paint performance */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Reduce layout shifts */
+img, picture, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize container element */
+.mil-bg-img-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  z-index: 1; /* Ensure background is behind overlay and content */
+}
+
+/* Hero overlay styling */
+.mil-banner .mil-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Ensure overlay is above background */
+  background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: blur(3px); /* Slightly reduced blur */
+}
+
+/* Hero content styling */
+.mil-banner .container {
+  position: relative; /* Make sure container positions relative to the banner */
+  z-index: 3; /* Ensure content is above the overlay */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Lightweight animations instead of GSAP */
+.mil-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mil-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Improve performance with contain property */
+.swiper-slide img {
+  contain: content;
+}
+
+/* Content visibility optimizations */
+.mil-section-off-screen {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Avoid layout shifts with aspect ratio */
+.mil-bg-img-container img {
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+}
+
+.mil-partner-frame {
+  display: block; /* Ensure the link takes up space */
+  position: relative;
+  width: 150px; /* Match the image size */
+  height: 100px; /* Changed from 80px */
+  overflow: visible; /* Prevent clipping */
+}
+
+.mil-partner-frame img {
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+  object-fit: contain !important; /* Ensure contain is applied */
+  width: 100%;
+  height: 100%;
+}
+
+/* Optimize paint performance */
+.mil-partners, 
+.mil-banner {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Prevent pointer events on decorative elements to improve performance */
+.mil-shape-1, 
+.mil-shape-2,
+.mil-shape-3,
+.mil-gradient-overlay {
+  pointer-events: none;
+}
+
+/* Force hardware acceleration for smoother scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize swiper performance */
+.swiper-wrapper, .swiper-slide {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  transition-timing-function: linear !important;
+}
+
+/* Simplify loading placeholders */
+.mil-loading-placeholder {
+  contain: strict;
+}
+
+/* Header Scroll Opacity on Mobile */
+@media (max-width: 991.98px) {
+  .mil-header-container.mil-scrolled .mil-top-panel {
+    background-color: #000000; /* Changed to black */
+    transition: background-color 0.3s ease;
+  }
+  .mil-about-content .mil-link.mil-link-hover {
+    display: inline-block; /* Ensure margin applies correctly */
+    margin-bottom: 20px; 
+  }
+}
