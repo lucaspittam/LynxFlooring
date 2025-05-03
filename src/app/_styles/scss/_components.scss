@@ -113,12 +113,13 @@ banner
     & .container {
         height: 100%;
         display: flex;
-        align-items: flex-end;
+        padding-top: 120px; // Base padding-top for larger screens
         padding-bottom: 60px;
     }
 
     & .mil-banner-content {
-        padding: 0;
+        padding-top: 120px; // Added padding to clear header
+        padding-bottom: 0; // Ensure no extra bottom padding conflicts
         width: 100%;
         position: relative;
         /* transform: translateZ(0); */ /* Reverted - Didn't fix glitch */

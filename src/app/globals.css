@@ -206,10 +206,101 @@ body {
 
 /* Header Scroll Opacity on Mobile */
 @media (max-width: 991.98px) {
-  .mil-header-container.mil-scrolled .mil-top-panel {
-    background-color: #000000; /* Changed to black */
-    transition: background-color 0.3s ease;
+  /* Default background for mobile header (increased specificity) */
+  body .mil-top-panel {
+    background-color: #000000 !important; /* Default black background on mobile */
   }
+
+  /* Apply scrolled background directly */
+  body .mil-top-panel.mil-scrolled {
+    background-color: #000000; /* Ensure black background persists on scroll */
+    /* You might keep or remove backdrop-filter/border based on design */
+    /* backdrop-filter: none; */
+    /* border-bottom: none; */
+    transition: background-color 0.3s ease;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 998; /* Ensure menu is above content but below fixed header */
+  }
+
+  /* Styles for the active mobile navigation menu */
+  .mil-navigation.mil-active {
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 998; /* Ensure menu is above content but below fixed header */
+  }
+
+  .mil-navigation.mil-active nav ul {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+  }
+
+  .mil-navigation.mil-active nav ul li {
+    width: 100%;
+    margin-bottom: 10px; /* Add spacing between items */
+    list-style: none; /* Remove potential list markers like dots */
+    background-color: transparent !important; /* Ensure no background on li */
+  }
+
+  /* Set link color and remove background for mobile nav items */
+  .mil-navigation.mil-active nav ul li a {
+    color: #ffffff !important; /* White text color (important to override) */
+    display: inline-block; /* Allow padding and centering */
+    padding: 8px 15px; /* Adjust padding around text */
+    background-color: transparent !important; /* Ensure no background on links */
+    text-decoration: none; /* Remove underline if any */
+    border-radius: 4px; /* Rounded corners for background */
+    transition: background-color 0.2s ease; /* Smooth transition */
+    text-align: center; /* Center text within the link */
+    width: auto; /* Fit width to content + padding */
+    margin: 0 auto; /* Center the link block within the li */
+  }
+
+  /* Remove styles from potential pseudo-elements */
+  .mil-navigation.mil-active nav ul li a::before,
+  .mil-navigation.mil-active nav ul li a::after {
+      content: none !important;
+      display: none !important;
+  }
+
+  /* Add hover/focus style for mobile nav items */
+  .mil-navigation.mil-active nav ul li a:hover,
+  .mil-navigation.mil-active nav ul li a:focus,
+  .mil-navigation.mil-active nav ul li a:active {
+      background-color: rgba(255, 255, 255, 0.1) !important; /* Subtle white overlay highlight */
+      color: #ffffff !important; /* Ensure text stays white */
+  }
+
+  /* Style the 'Join Us' button specifically */
+  .mil-navigation.mil-active nav ul li a.mil-button { /* Assuming 'mil-button' class */
+      background-color: #ADFF2F !important; /* Example accent color (lime green) */
+      color: #000000 !important; /* Black text for contrast */
+      padding: 8px 20px; /* Adjust padding if needed */
+      border-radius: 4px;
+  }
+
+  /* Ensure hover on the button doesn't use the default subtle white */
+  .mil-navigation.mil-active nav ul li a.mil-button:hover,
+  .mil-navigation.mil-active nav ul li a.mil-button:focus,
+  .mil-navigation.mil-active nav ul li a.mil-button:active {
+    background-color: #9ACD32 !important; /* Slightly darker green on hover */
+    color: #000000 !important;
+  }
+
+  .mil-navigation.mil-active nav ul li ul {
+    position: static; /* Reset submenu positioning */
+    background-color: transparent; /* Remove submenu background */
+    box-shadow: none;
+    padding-left: 15px; /* Indent subitems slightly */
+  }
+
   .mil-about-content .mil-link.mil-link-hover {
     display: inline-block; /* Ensure margin applies correctly */
     margin-bottom: 20px; 
@@ -246,12 +337,6 @@ body {
   width: 100%;
   transition: all 0.3s ease;
   background-color: transparent;
-}
-
-.mil-top-panel.mil-scrolled {
-  background-color: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mil-top-panel-content {

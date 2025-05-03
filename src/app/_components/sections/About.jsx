@@ -8,28 +8,43 @@ import { useEffect, useRef, memo } from "react";
 
 const AboutSection = () => {
   const counterRef = useRef(null);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && counterRef.current) {
+        const currentCounter = counterRef.current;
+        if (entry.isIntersecting && currentCounter) {
+          if (timerRef.current) {
+            clearInterval(timerRef.current);
+          }
+
           const target = parseInt(
-            counterRef.current.getAttribute("data-number"),
+            currentCounter.getAttribute("data-number"),
             10
           );
           if (isNaN(target)) return;
           let count = 0;
           const increment = Math.max(1, Math.ceil(target / 40));
-          const timer = setInterval(() => {
+          timerRef.current = setInterval(() => {
+            if (!counterRef.current) {
+                clearInterval(timerRef.current);
+                return;
+            }
             count += increment;
             if (count >= target) {
-              clearInterval(timer);
+              clearInterval(timerRef.current);
+              timerRef.current = null;
               counterRef.current.textContent = target;
             } else {
               counterRef.current.textContent = count;
             }
           }, 60);
-          return () => clearInterval(timer);
+        } else {
+          if (timerRef.current) {
+            clearInterval(timerRef.current);
+            timerRef.current = null;
+          }
         }
       },
       { threshold: 0.1 }
@@ -43,6 +58,10 @@ const AboutSection = () => {
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
+      }
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
       }
     };
   }, []);

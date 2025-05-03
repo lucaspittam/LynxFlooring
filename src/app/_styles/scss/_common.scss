@@ -83,12 +83,21 @@ h1,
 .mil-h1 {
     font-size: $h1;
 
+    @media screen and (max-width: 1300px) {
+        font-size: $h2;
+    }
+
+    @media screen and (max-width: 1024px) {
+        font-size: $h2 - 6px;
+    }
+
     @media screen and (max-width: 992px) {
         font-size: $h2;
     }
 
     @media screen and (max-width: 768px) {
-        font-size: $h2 - 4px;
+        font-size: $h2 - 14px;
+        line-height: 1.15;
     }
 
     @media screen and (max-width: 576px) {
