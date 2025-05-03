@@ -36,12 +36,12 @@ const HeroOne = () => {
             sizes="100vw"
             style={{ 
               objectFit: 'cover',
-              // Apply filter along with transform based on visibility
-              filter: isVisible ? "grayscale(100%)" : "grayscale(0%)",
+              // Apply filter initially and remove conditional logic
+              filter: "grayscale(100%)", // Always grayscale
               transform: isVisible ? "scale(1)" : "scale(0.98)",
-              // Ensure transition applies to both transform and filter, adjusted for smoothness
-              transition: "transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)",
-              willChange: "transform, filter" // Hint for browser optimization
+              // Adjust transition to only apply to transform
+              transition: "transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)", 
+              willChange: "transform" // Hint for browser optimization - only transform changes now
             }}
           />
         </div>

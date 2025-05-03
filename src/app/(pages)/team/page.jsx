@@ -1,6 +1,6 @@
 import React from "react";
 import AppData from "@data/app.json";
-import PageBanner from "@components/PageBanner";
+import PageBanner from "@appComponents/PageBanner";
 import RecruitSection from "../../_components/sections/Recruit";
 import TeamSection from "@components/TeamSection";
 
