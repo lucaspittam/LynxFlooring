@@ -25,8 +25,10 @@ export const ScrollAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // Batch animations to reduce reflows
-  gsap.set(".mil-up", { opacity: 0, y: 50, scale: 0.98 });
+  // REMOVED: gsap.set(".mil-up", { opacity: 0, y: 50, scale: 0.98 }); 
+  // This was causing the initial load animation
 
+  /*
   // Use a single ScrollTrigger for all appearance animations
   ScrollTrigger.batch(".mil-up", {
     onEnter: (batch) => {
@@ -36,19 +38,22 @@ export const ScrollAnimation = () => {
         scale: 1,
         stagger: 0.05,
         ease: "sine",
+        overwrite: true // Ensure this animation takes precedence if element is already visible
       });
     },
     onLeaveBack: (batch) => {
       gsap.to(batch, {
-        opacity: 0,
+        opacity: 0, // Set opacity to 0 when scrolling up past the element
         y: 50,
         scale: 0.98,
         stagger: 0.05,
         ease: "sine",
+        overwrite: true
       });
     },
     start: "top 85%",
   });
+  */ // COMPLETELY DISABLED .mil-up ScrollTrigger batch
 
   // Optimize scale image animations
   /* -- Commented out for testing hero scroll performance

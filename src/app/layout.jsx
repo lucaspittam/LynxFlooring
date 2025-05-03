@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
       <body>
         <div className="mil-wrapper">
           {children}
-          <ScrollbarProgress />
+          {/* <ScrollbarProgress /> */ /* Commented out to test glitch */}
         </div>
       </body>
     </html>

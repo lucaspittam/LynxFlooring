@@ -35,7 +35,7 @@ const PagesLayouts = ({ children }) => {
       </div>
 
       {/* content */}
-      <div id="content" style={{ position: "relative", overflowY: "visible", minHeight: "100vh" }}>
+      <div id="content">
         {children}
         <Footer layout={"default"} />
       </div>

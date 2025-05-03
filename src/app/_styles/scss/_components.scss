@@ -97,9 +97,9 @@ banner
 
 .mil-banner {
     position: relative;
-    overflow: hidden;
-    height: 100vh;
-    min-height: 600px;
+    overflow: hidden; /* Restored */
+    height: 100vh; /* Restored */
+    min-height: 600px; /* Restored */
 
     & .mil-banner-slider {
         width: 100%;
@@ -121,20 +121,41 @@ banner
         padding: 0;
         width: 100%;
         position: relative;
+        /* transform: translateZ(0); */ /* Reverted - Didn't fix glitch */
+        /* -webkit-transform: translateZ(0); */ /* Reverted - Didn't fix glitch */
+        
+        h1 {
+            /* transform: translateZ(0); */ /* Reverted */
+            /* -webkit-transform: translateZ(0); */ /* Reverted */
+            /* will-change: auto; */ /* Reverted */
+            /* Improve rendering stability */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
     }
 
     @media screen and (max-width: 992px) {
-        min-height: 500px;
-        height: auto;
+        min-height: 500px; /* Restored */
+        height: auto; /* Restored */
 
         & .container {
             padding-top: 120px;
             padding-bottom: 60px;
-            min-height: 100vh;
+            min-height: 100vh; /* Restored */
         }
 
         & .mil-banner-content {
             padding: 0;
+        }
+
+        & h1 {
+            font-size: 2.5rem;
+             /* transform: translateZ(0); */ /* Reverted */
+            /* -webkit-transform: translateZ(0); */ /* Reverted */
+            /* will-change: auto; */ /* Reverted */
+             /* Improve rendering stability */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
     }
 
@@ -145,6 +166,12 @@ banner
 
         & h1 {
             font-size: 2.5rem;
+             /* transform: translateZ(0); */ /* Reverted */
+            /* -webkit-transform: translateZ(0); */ /* Reverted */
+            /* will-change: auto; */ /* Reverted */
+             /* Improve rendering stability */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         & .mil-counter-frame {
@@ -159,6 +186,12 @@ banner
 
         & h1 {
             font-size: 2rem;
+             /* transform: translateZ(0); */ /* Reverted */
+            /* -webkit-transform: translateZ(0); */ /* Reverted */
+            /* will-change: auto; */ /* Reverted */
+             /* Improve rendering stability */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         & .row {
@@ -1293,13 +1326,13 @@ top panel
 ------------------------------------------- */
 .mil-top-panel {
     border-bottom: solid 1px rgba(255, 255, 255, 0.1);
-    position: fixed;
+    position: absolute; /* Changed from fixed for testing */
     z-index: 999;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */ /* Removed to test glitch */
     background-color: transparent;
     backdrop-filter: blur(0px);
 
@@ -1314,7 +1347,7 @@ top panel
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: $t-md;
+        /* transition: $t-md; */ /* Removed to test glitch */
 
         & .mil-logo {
             display: block;

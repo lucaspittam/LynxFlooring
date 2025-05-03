@@ -26,8 +26,10 @@ const PageBanner = ({ pageTitle, breadTitle, bgImage }) => {
     pageTitle = "Search: " + query;
   }
 
+  // }, []);
+
   useEffect(() => {
-    ScrollAnimation();
+    // ScrollAnimation(); // Commented out to disable GSAP animations within the banner
   }, []);
 
   return (
@@ -36,9 +38,7 @@ const PageBanner = ({ pageTitle, breadTitle, bgImage }) => {
       <section className="mil-banner mil-banner-sm">
         <img
           src={bgImage}
-          className="mil-bg-img mil-scale"
-          data-value-1=".4"
-          data-value-2="1.4"
+          className="mil-bg-img"
           alt="image"
           style={{ objectPosition: "top" }}
         />

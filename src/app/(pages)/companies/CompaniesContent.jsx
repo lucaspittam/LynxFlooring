@@ -131,7 +131,7 @@ const CompaniesContent = ({ companies }) => {
       <div className="container mil-p-90-30">
         {/* Companies Introduction */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial="visible"
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="row justify-content-center mb-5"
@@ -160,7 +160,7 @@ const CompaniesContent = ({ companies }) => {
         <div className="row justify-content-center">
           <div className="col-lg-12">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial="visible"
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mil-filter-buttons mil-center mil-mb-50"
@@ -183,7 +183,7 @@ const CompaniesContent = ({ companies }) => {
                     key={companyId}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial="visible"
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ 
                       duration: 0.4, 
@@ -216,7 +216,7 @@ const CompaniesContent = ({ companies }) => {
         <motion.div 
           className="row"
           variants={containerVariants}
-          initial="hidden"
+          initial="visible"
           animate="visible"
           key={activeCompany} // Force re-render on filter change
 
