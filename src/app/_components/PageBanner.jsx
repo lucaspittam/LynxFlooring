@@ -46,8 +46,6 @@ const PageBanner = ({ pageTitle, breadTitle, bgImage }) => {
         <div className="mil-overlay" />
 
         <div className="container">
-          <div className="mil-background-grid mil-top-space" />
-
           <div className="mil-banner-content mil-center">
             <div className="mil-mb-90">
               <h1

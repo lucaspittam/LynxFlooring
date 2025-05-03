@@ -113,7 +113,6 @@ async function Home1() {
         className="mil-relative"
       >
         <div className="container mil-p-60-60">
-          <div className="mil-background-grid mil-softened" />
 
           <div className="mil-center mil-mb-60">
             <span 
