@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */ /* Commented out to fix mobile scrolling */
   z-index: 1;
 }
 
@@ -120,3 +120,13 @@
   animation: fadeInUp 0.8s forwards;
   animation-delay: calc(0.2s * var(--index, 1));
 }
+
+/* Hero container styling */
+/* .hero-container { */
+/*   position: relative; */
+/*   width: 100%; */
+/*   Removed overflow: hidden to fix mobile scrolling */
+/*   overflow: hidden; */
+/*   background-color: #f8f9fa; Light background for contrast */
+/*   padding: 60px 0; Adjust padding as needed */
+/* } */
