@@ -1186,9 +1186,10 @@ footer {
                     text-decoration: none;
                     text-transform: uppercase;
                     color: $light;
-                    font-size: 12px;
+                    font-size: 14px;
                     font-weight: 600;
                     white-space: nowrap;
+                    padding: 0 10px;
                     transition: $t-sm;
 
                     &:hover {
@@ -1409,7 +1410,7 @@ top panel
                     text-decoration: none;
                     text-transform: uppercase;
                     color: $light;
-                    font-size: 12px;
+                    font-size: 14px;
                     font-weight: 600;
                     white-space: nowrap;
                     padding: 0 10px;

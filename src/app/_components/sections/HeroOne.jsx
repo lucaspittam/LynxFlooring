@@ -37,11 +37,7 @@ const HeroOne = () => {
             style={{ 
               objectFit: 'cover',
               // Apply filter initially and remove conditional logic
-              filter: "grayscale(100%)", // Always grayscale
-              transform: isVisible ? "scale(1)" : "scale(0.98)",
-              // Adjust transition to only apply to transform
-              transition: "transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)", 
-              willChange: "transform" // Hint for browser optimization - only transform changes now
+              filter: "grayscale(100%)", // Always grayscale -- Restored
             }}
           />
         </div>
@@ -51,7 +47,6 @@ const HeroOne = () => {
           style={{
             background:
               "linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)",
-            backdropFilter: "blur(5px)",
           }}
         />
 

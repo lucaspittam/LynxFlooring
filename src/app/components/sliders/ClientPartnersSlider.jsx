@@ -26,7 +26,7 @@ export default function ClientPartnersSlider() {
       <div className="container mil-p-120-120">
         <div className="mil-partners-wrapper"
              style={{ 
-               overflow: 'hidden',
+               // overflow: 'hidden', -- Removed to prevent image clipping
                position: 'relative'
              }}>
           {/* Added mil-partners-scroll class for CSS animation */}

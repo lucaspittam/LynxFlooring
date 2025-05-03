@@ -31,37 +31,61 @@ const CompaniesContent = ({ companies }) => {
     resource4floors: "https://www.resource4floors.com",
   };
 
-  // Company highlights
+  // Company highlights and president information
   const companyHighlights = {
     "flooring-solutions": {
       yearsFounded: 1990,
       highlight: "Bay Area's Premier Commercial Flooring Provider",
-      specialty: "Healthcare & Educational Facilities"
+      specialty: "Healthcare & Educational Facilities",
+      president: {
+        name: "Mark Iberri",
+        email: "Mark@flooring-solutions.com"
+      }
     },
     "gwc-interiors": {
       yearsFounded: 2000,
       highlight: "Pacific Northwest's Trusted Flooring Partner",
-      specialty: "Corporate & Retail Spaces"
+      specialty: "Corporate & Retail Spaces",
+      president: {
+        name: "Matt Johnson",
+        email: "mattj@gwcinteriors.com"
+      }
     },
     shehadi: {
       yearsFounded: 1900,
       highlight: "85+ Years of Excellence in Commercial Flooring",
-      specialty: "Government & Institutional Buildings"
+      specialty: "Government & Institutional Buildings",
+      president: {
+        name: "Nathan Dunn",
+        email: "ndunn@shehadicf.com"
+      }
     },
     "mw-floor": {
       yearsFounded: 1990,
       highlight: "Midwest's Leading Sports Flooring Specialist",
-      specialty: "Athletic & Recreation Facilities"
+      specialty: "Athletic & Recreation Facilities",
+      president: {
+        name: "Brad Larsen",
+        email: "brad@mwfloor.com"
+      }
     },
     floorsol: {
       yearsFounded: 2005,
       highlight: "Innovation in Commercial & Industrial Flooring",
-      specialty: "Manufacturing & Industrial Spaces"
+      specialty: "Manufacturing & Industrial Spaces",
+      president: {
+        name: "Jason DeBenedetto",
+        email: "jd@floorsol.com"
+      }
     },
     resource4floors: {
       yearsFounded: 1980,
       highlight: "South Florida's Single Source for Sustainable Floor Covering",
-      specialty: "Hospitality & Multi-Family Residential"
+      specialty: "Hospitality & Multi-Family Residential",
+      president: {
+        name: "Sean Finn",
+        email: "sean.finn@resource4floors.com"
+      }
     },
   };
 
@@ -103,8 +127,8 @@ const CompaniesContent = ({ companies }) => {
   };
 
   return (
-    <section>
-      <div className="container mil-p-120-30">
+    <section style={{ paddingTop: "30px" }}>
+      <div className="container mil-p-90-30">
         {/* Companies Introduction */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -139,7 +163,7 @@ const CompaniesContent = ({ companies }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mil-filter-buttons mil-center mil-mb-90"
+              className="mil-filter-buttons mil-center mil-mb-50"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -195,12 +219,13 @@ const CompaniesContent = ({ companies }) => {
           initial="hidden"
           animate="visible"
           key={activeCompany} // Force re-render on filter change
+
         >
           {filteredCompanies.map((company, index) => (
             <motion.div
               key={company.id}
               variants={itemVariants}
-              className={`${activeCompany === "all" ? "col-lg-6" : "col-lg-12"} mil-mb-90`}
+              className={`${activeCompany === "all" ? "col-lg-6" : "col-lg-12"} mil-mb-60`}
             >
               <motion.div
                 className={`mil-company-card ${activeCompany !== "all" ? "mil-single-view" : ""}`}
@@ -211,7 +236,8 @@ const CompaniesContent = ({ companies }) => {
                   transition: "all 0.4s ease",
                   border: "none",
                   height: "100%",
-                  backgroundColor: "#fff"
+                  backgroundColor: "#fff",
+                  marginTop: activeCompany !== "all" ? "20px" : "10px"
                 }}
                 whileHover={{ 
                   y: -10,
@@ -361,6 +387,7 @@ const CompaniesContent = ({ companies }) => {
                             >
                               <strong>Specialty:</strong> {companyHighlights[company.id].specialty}
                             </div>
+                            
                           </div>
                         )}
                       </>
@@ -474,6 +501,103 @@ const CompaniesContent = ({ companies }) => {
                           ))}
                         </ul>
                       </div>
+
+                      {/* President Information - Only show in single company view */}
+                      {activeCompany !== "all" && companyHighlights[company.id]?.president && (
+                        <div className="mil-company-president" style={{ marginBottom: "20px" }}>
+                          <h4 style={{ fontSize: "18px", marginBottom: "15px", display: "flex", alignItems: "center" }}>
+                            <svg 
+                              width="18" 
+                              height="18" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              style={{ marginRight: "8px" }}
+                            >
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Company President
+                          </h4>
+                          
+                          <div style={{ 
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "15px",
+                            padding: "15px",
+                            background: "#f9f9f9",
+                            borderRadius: "8px",
+                            border: "1px solid #eee"
+                          }}>
+                            <div style={{
+                              width: "50px",
+                              height: "50px",
+                              borderRadius: "50%",
+                              backgroundColor: "#fff",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              border: "2px solid #C2D720"
+                            }}>
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#666"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                              </svg>
+                            </div>
+                            
+                            <div>
+                              <div style={{
+                                fontSize: "16px",
+                                fontWeight: "600",
+                                color: "#333",
+                                marginBottom: "4px"
+                              }}>
+                                {companyHighlights[company.id].president.name}
+                              </div>
+                              
+                              <a
+                                href={`mailto:${companyHighlights[company.id].president.email}`}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "6px",
+                                  fontSize: "14px",
+                                  color: "#C2D720",
+                                  textDecoration: "none",
+                                  fontWeight: "500"
+                                }}
+                              >
+                                <svg
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                  <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                {companyHighlights[company.id].president.email}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      )}
 
                       {/* Projects Preview */}
                       {company.projects && company.projects.length > 0 && (

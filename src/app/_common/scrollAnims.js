@@ -51,6 +51,7 @@ export const ScrollAnimation = () => {
   });
 
   // Optimize scale image animations
+  /* -- Commented out for testing hero scroll performance
   document.querySelectorAll(".mil-scale").forEach((section) => {
     const value1 = section.getAttribute("data-value-1");
     const value2 = section.getAttribute("data-value-2");
@@ -69,8 +70,10 @@ export const ScrollAnimation = () => {
       }
     );
   });
+  */
 
   // Optimize parallax
+  /* -- Commented out for testing hero scroll performance
   document.querySelectorAll(".mil-parallax").forEach((section) => {
     const value1 = section.getAttribute("data-value-1");
     const value2 = section.getAttribute("data-value-2");
@@ -90,6 +93,7 @@ export const ScrollAnimation = () => {
       }
     );
   });
+  */
 
   // Optimize skill animations with batching
   const skillProgs = document.querySelectorAll(".mil-skill-prog");
