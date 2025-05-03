@@ -1,5 +1,5 @@
 import React from "react";
-import PageBanner from "@components/PageBanner";
+import PageBanner from "@appComponents/PageBanner";
 import ProjectsContent from "./ProjectsContent";
 import { getSortedProjectsData } from "../../_lib/companies";
 import AppData from "@data/app.json";

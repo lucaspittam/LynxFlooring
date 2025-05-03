@@ -1,5 +1,6 @@
 import React from "react";
-import PageBanner from "@components/PageBanner";
+import dynamic from 'next/dynamic';
+import PageBanner from '@appComponents/PageBanner';
 import CompaniesContent from "./CompaniesContent";
 import { getSortedProjectsData } from "../../_lib/companies";
 import AppData from "@data/app.json";
