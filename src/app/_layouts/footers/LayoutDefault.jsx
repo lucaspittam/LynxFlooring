@@ -275,7 +275,7 @@ const DefaultFooter = () => {
                     </div>
                     <div>
                       <p style={{ margin: 0, color: "#999" }}>
-                        Info@lynxflooring.com
+                        ma@lynxequity.com
                       </p>
                     </div>
                   </div>

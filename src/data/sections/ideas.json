@@ -11,11 +11,6 @@
             "icon": "/img/icons/4.svg",
             "link": "/projects",
             "label": "Our Companies"
-        },
-        {
-            "icon": "/img/icons/5.svg",
-            "link": "/contact",
-            "label": "Contact Us"
         }
     ],
     "background": {

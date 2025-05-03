@@ -2,8 +2,9 @@
 
 import Data from "@data/sections/about.json";
 import Link from "next/link";
+import Image from "next/image";
 import ModernBackground from "../../_common/modernBackgrounds";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
 const AboutSection = () => {
   const counterRef = useRef(null);
@@ -14,9 +15,11 @@ const AboutSection = () => {
         if (entry.isIntersecting && counterRef.current) {
           const target = parseInt(
             counterRef.current.getAttribute("data-number"),
+            10
           );
+          if (isNaN(target)) return;
           let count = 0;
-          const increment = Math.ceil(target / 40);
+          const increment = Math.max(1, Math.ceil(target / 40));
           const timer = setInterval(() => {
             count += increment;
             if (count >= target) {
@@ -26,18 +29,20 @@ const AboutSection = () => {
               counterRef.current.textContent = count;
             }
           }, 60);
+          return () => clearInterval(timer);
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
+    const currentRef = counterRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (counterRef.current) {
-        observer.unobserve(counterRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -79,20 +84,18 @@ const AboutSection = () => {
             <div className="col-lg-6">
               <div className="mil-illustration mil-up mil-mb-90 mil-about-image">
                 <div className="mil-image-frame mil-parallax-image">
-                  <img
+                  <Image
                     src={Data.image.url}
                     alt={Data.image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{
+                      objectFit: "cover",
+                      filter: "grayscale(70%)",
+                    }}
                     className="mil-scale"
                     data-value-1="1"
-                    data-value-2="2"
-                    style={{
-                      filter: "grayscale(70%)",
-                      transform: "scale(0.5)",
-                      transformOrigin: "center center",
-                      objectFit: "contain",
-                      width: "100%",
-                      height: "100%",
-                    }}
+                    data-value-2="1.2"
                   />
                 </div>
                 <div className="mil-about-counter mil-counter-box">
@@ -118,4 +121,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default memo(AboutSection);

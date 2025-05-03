@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultHeader from "../../_layouts/headers/LayoutDefault";
-import PageBanner from "@components/PageBanner";
+import PageBanner from "@appComponents/PageBanner";
 
 const PrivacyPolicy = () => {
   return (
@@ -33,10 +33,7 @@ const PrivacyPolicy = () => {
                 additional information if you contact us for support.
               </p>
 
-              <div
-                className="mil-p-30 mil-mb-30"
-                style={{ backgroundColor: "#f8f9fa" }}
-              >
+              <div className="mil-info-box">
                 <h3 className="mil-h6 mil-dark mil-mb-15">
                   Device information:
                 </h3>
@@ -56,7 +53,7 @@ const PrivacyPolicy = () => {
                 </ul>
               </div>
 
-              <div className="mil-p-30" style={{ backgroundColor: "#f8f9fa" }}>
+              <div className="mil-info-box">
                 <h3 className="mil-h6 mil-dark mil-mb-15">
                   Order information:
                 </h3>
@@ -83,56 +80,60 @@ const PrivacyPolicy = () => {
                 improve our services, to process your orders, and to communicate
                 with you.
               </p>
-              <ul
-                className="mil-p-30 mil-mb-30"
-                style={{ backgroundColor: "#f8f9fa" }}
-              >
-                <li>Prevent and detect fraud</li>
-                <li>Comply with legal obligations</li>
-                <li>Resolve disputes</li>
-                <li>Improve our services</li>
-              </ul>
+              <div className="mil-info-box">
+                <ul className="mil-list mil-dark-soft mil-text-sm">
+                  <li>Prevent and detect fraud</li>
+                  <li>Comply with legal obligations</li>
+                  <li>Resolve disputes</li>
+                  <li>Improve our services</li>
+                </ul>
+              </div>
             </section>
 
             <section className="mil-mb-60">
               <h2 className="mil-h4 mil-dark mil-mb-30">
                 Sharing Personal Information
               </h2>
-              <div className="mil-p-30" style={{ backgroundColor: "#f8f9fa" }}>
-                We share your Personal Information with service providers to
-                help us provide our services and fulfill our contracts with you.
+              <div className="mil-info-box">
+                <p className="mil-text-sm mil-dark-soft">
+                  We share your Personal Information with service providers to
+                  help us provide our services and fulfill our contracts with you.
+                </p>
               </div>
             </section>
 
             <section className="mil-mb-60">
               <h2 className="mil-h4 mil-dark mil-mb-30">Advertising Opt-Out</h2>
-              <div className="mil-p-30" style={{ backgroundColor: "#f8f9fa" }}>
+              <div className="mil-info-box">
                 <ul className="mil-list mil-dark-soft mil-text-sm">
-                  <li className="mil-mb-15 hover:text-blue-600 transition-colors">
+                  <li className="mil-mb-15">
                     <a
                       href="https://www.facebook.com/settings/?tab=ads"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="mil-link mil-link-hover"
                     >
                       <span className="font-semibold">FACEBOOK</span> - Ad
                       Settings
                     </a>
                   </li>
-                  <li className="mil-mb-15 hover:text-blue-600 transition-colors">
+                  <li className="mil-mb-15">
                     <a
                       href="https://www.google.com/settings/ads/anonymous"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="mil-link mil-link-hover"
                     >
                       <span className="font-semibold">GOOGLE</span> - Ad
                       Settings
                     </a>
                   </li>
-                  <li className="mil-mb-15 hover:text-blue-600 transition-colors">
+                  <li>
                     <a
                       href="https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="mil-link mil-link-hover"
                     >
                       <span className="font-semibold">BING</span> - Ad Settings
                     </a>
@@ -143,18 +144,24 @@ const PrivacyPolicy = () => {
 
             <section className="mil-mb-60">
               <h2 className="mil-h4 mil-dark mil-mb-30">Contact</h2>
-              <div className="mil-p-30" style={{ backgroundColor: "#f8f9fa" }}>
-                <p className="font-semibold text-base mb-1">Lynx Flooring</p>
-                <p className="mb-1">[Your Address Here]</p>
-                <p className="text-blue-600 hover:text-blue-700 transition-colors">
-                  <a href="mailto:[Your Email Here]">[Your Email Here]</a>
+              <div className="mil-info-box">
+                <p className="mil-h6 mil-dark mil-mb-15">Lynx Flooring</p>
+                <p className="mil-text-sm mil-dark-soft mil-mb-15">
+                  692 Queen St E #205, Toronto, ON M4M 1G9
+                </p>
+                <p className="mil-text-sm mil-dark-soft">
+                  <a href="mailto:ma@lynxequity.com" className="mil-link mil-link-hover">
+                    ma@lynxequity.com
+                  </a>
                 </p>
               </div>
             </section>
 
             <div className="mil-divider mil-mb-30"></div>
             <div className="mil-text-sm mil-dark-soft mil-center">
-              <p>Last updated: [Current Date]</p>
+              <p className="mil-mb-15">
+                Last updated: May 1, 2025
+              </p>
               <p>© 2024 Lynx Flooring. All rights reserved.</p>
             </div>
           </div>

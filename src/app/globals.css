@@ -129,6 +129,8 @@ img, picture, video, canvas {
   width: 150px; /* Match the image size */
   height: 100px; /* Changed from 80px */
   overflow: visible; /* Prevent clipping */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
 }
 
 .mil-partner-frame img {
@@ -188,4 +190,122 @@ body {
     display: inline-block; /* Ensure margin applies correctly */
     margin-bottom: 20px; 
   }
+}
+
+/* Header Styles */
+.mil-top-panel {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.mil-top-panel.mil-scrolled {
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mil-top-panel-content {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mil-logo {
+  display: flex;
+  align-items: center;
+}
+
+.mil-navigation {
+  display: flex;
+  align-items: center;
+}
+
+.mil-navigation a {
+  font-size: 1.1em; /* Adjust as needed */
+}
+
+.mil-top-panel-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Remove the previous content padding */
+#content {
+  padding-top: 0;
+}
+
+/* Remove the previous banner margin */
+.mil-banner {
+  margin-top: 0;
+}
+
+/*--------------------------------------------------
+  Partners Slider Animation
+---------------------------------------------------*/
+
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* 6 items * (150px width + 60px margin) = 1260px */
+    transform: translateX(-1260px); 
+  }
+}
+
+.mil-partners-scroll {
+  /* Adjust animation duration as needed */
+  animation: scrollPartners 25s linear infinite;
+  /* Negative margin to counteract the first item's left margin visually */
+  margin-left: -30px; /* Updated negative margin */
+}
+
+/* Optional: Pause animation on hover */
+.mil-partners-wrapper:hover .mil-partners-scroll {
+  animation-play-state: paused;
+}
+
+/* Responsive Adjustments for Partners Slider */
+@media (max-width: 768px) {
+  /* Adjust item size and animation for smaller screens */
+  .mil-partners-scroll .partner-item {
+    flex-basis: 120px;
+    margin: 0 20px; /* Increased mobile margin */
+  }
+
+  @keyframes scrollPartnersMobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* 6 items * (120px width + 40px margin) = 960px */
+      transform: translateX(-960px); /* Updated mobile animation distance */
+    }
+  }
+
+  .mil-partners-scroll {
+    animation-name: scrollPartnersMobile;
+    animation-duration: 20s; /* Slightly faster on mobile maybe? */
+    margin-left: -20px; /* Updated mobile negative margin */
+  }
+}
+
+/* Remove grayscale on hover */
+.partner-item:hover .mil-partner-frame {
+  filter: grayscale(0%);
+}
+
+/* Custom Info Box for Pages */
+.mil-info-box {
+  background-color: #f8f9fa;
+  padding: 30px;
+  margin-bottom: 30px; /* Add default bottom margin */
 }

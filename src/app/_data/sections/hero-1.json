@@ -1,6 +1,7 @@
 {
     "bg_image": "/img/photo/1.jpg",
-    "title": "Great People<br/><span class=\"mil-accent\">Quality Floors</span><br/>Nationwide <br/> Service",
+    "title": "The Home For<br/><span class=\"mil-accent\">Legacy <br/> Flooring</span><br/>Contractors",
+    "subtitle": "Building a permanent future for local brands to provide customers with the trusted service they've always known",
     "numbers": [
         {
             "value": "2000",
@@ -20,7 +21,7 @@
         {
             "value": "150",
             "afterValue": "+",
-            "label": "Million <br/>In <br/>Revenue"
+            "label": "Million In <br/>Revenue"
         }
     ]
 } 

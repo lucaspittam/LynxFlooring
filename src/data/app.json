@@ -31,9 +31,8 @@
                 "children": []
             },
             {
-                "label": "Contact Us",
-                "link": "/contact",
-                "children": []
+                "label": "About Us",
+                "link": "/about"
             }
         ]
     },
@@ -53,8 +52,8 @@
                 "link": "/join"
             },
             {
-                "label": "Contact",
-                "link": "/contact"
+                "label": "FAQ",
+                "link": "/faq"
             }
         ]
     },

@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 const DefaultHeader = () => {
   const [toggle, setToggle] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const asPath = usePathname();
 
   const isPathActive = (path) => {
@@ -20,6 +21,20 @@ const DefaultHeader = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     // close mobile menu
     setToggle(false);
   }, [asPath]);
@@ -27,7 +42,7 @@ const DefaultHeader = () => {
   return (
     <>
       {/* top bar */}
-      <div className="mil-top-panel">
+      <div className={`mil-top-panel ${isScrolled ? 'mil-scrolled' : ''}`}>
         <div className="container-fluid">
           <div className="mil-top-panel-content">
             <Link href="/" className="mil-logo">
@@ -54,14 +69,14 @@ const DefaultHeader = () => {
                       <Link
                         href={item.link}
                         onClick={
-                          item.children.length > 0
+                          item.children?.length > 0
                             ? (e) => handleSubMenuClick(index, e)
                             : null
                         }
                       >
                         {item.label}
                       </Link>
-                      {item.children.length > 0 && (
+                      {item.children?.length > 0 && (
                         <ul
                           className={
                             activeSubMenu === index ? "mil-active" : ""
@@ -104,7 +119,6 @@ const DefaultHeader = () => {
                 <span></span>
               </div>
             </div>
-            {/* right buttons end */}
           </div>
         </div>
       </div>
@@ -112,4 +126,5 @@ const DefaultHeader = () => {
     </>
   );
 };
+
 export default DefaultHeader;

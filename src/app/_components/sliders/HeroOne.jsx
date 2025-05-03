@@ -1,13 +1,32 @@
 "use client";
 
-import { SliderProps } from "@common/sliderProps";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { SliderProps } from "@common/sliderProps"; // No longer needed directly for modules
+// import { Swiper, SwiperSlide } from "swiper/react"; // Will be dynamically imported
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
+// Import Swiper modules
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+
+// Import Swiper styles
+// Base Swiper styles (usually needed)
+import 'swiper/css'; 
+// Required module styles
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+// Autoplay doesn't usually have its own CSS, but include base if needed
 
 import Data from "@data/sliders/hero-1.json";
 import Link from "next/link";
 
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { ScrollAnimation } from "@common/scrollAnims";
+
+// Dynamically import Swiper components
+const Swiper = dynamic(() => import('swiper/react').then(mod => mod.Swiper), { ssr: false });
+const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperSlide), { ssr: false });
+
 
 const HeroOneSlider = () => {
   useEffect(() => {
@@ -18,28 +37,55 @@ const HeroOneSlider = () => {
     <>
       {/* hero one slider */}
       <section className="mil-banner">
-        <Swiper
-          {...SliderProps.milBannerSlider}
-          className="swiper-container mil-banner-slider mil-scale"
-          data-value-1=".4"
-          data-value-2="1.4"
-        >
-          {Data.items.map((item, key) => (
-            <SwiperSlide
-              className="swiper-slide"
-              key={`hero-one-slider-item-${key}`}
-            >
-              <img
-                src={item.image}
-                className="mil-bg-img"
-                alt={item.alt}
-                style={{ objectPosition: "top" }}
-                data-swiper-parallax-x="300"
-                data-swiper-parallax-scale="1.3"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {/* Ensure Swiper component is rendered only after dynamic import resolves */}
+        {Swiper && SwiperSlide && (
+          <Swiper
+            // Pass modules
+            modules={[Navigation, Pagination, Autoplay, EffectFade]} 
+            slidesPerView={1}
+            spaceBetween={30}
+            speed={800}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            effect="fade"
+            loop={true}
+            navigation={{
+              prevEl: ".mil-banner-prev",
+              nextEl: ".mil-banner-next",
+            }}
+            pagination={{
+              el: ".mil-banner-pagination",
+              type: "bullets",
+              clickable: true,
+            }}
+            className="swiper-container mil-banner-slider mil-scale"
+            // data-value-1=".4" // Potentially related to custom animations/parallax, review if needed
+            // data-value-2="1.4" // Potentially related to custom animations/parallax, review if needed
+          >
+            {Data.items.map((item, key) => (
+              <SwiperSlide
+                className="swiper-slide"
+                key={`hero-one-slider-item-${key}`}
+              >
+                {/* Replace img with next/image */}
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  className="mil-bg-img" 
+                  fill={true} // Use fill for background-like images
+                  priority={true} // Prioritize loading for hero images (LCP)
+                  sizes="100vw" // Specify sizes for responsive loading
+                  style={{ objectFit: 'cover', objectPosition: 'top' }} // Control image scaling and position
+                  // Parallax attributes removed - review if needed and apply differently
+                  // data-swiper-parallax-x="300"
+                  // data-swiper-parallax-scale="1.3"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
 
         <div className="mil-overlay" />
 
@@ -90,4 +136,4 @@ const HeroOneSlider = () => {
     </>
   );
 };
-export default HeroOneSlider;
+export default memo(HeroOneSlider);

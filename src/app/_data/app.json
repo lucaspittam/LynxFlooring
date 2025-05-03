@@ -29,11 +29,6 @@
                 "label": "Our Companies",
                 "link": "/companies",
                 "children": []
-            },
-            {
-                "label": "Contact Us",
-                "link": "/contact",
-                "children": []
             }
         ]
     },
@@ -51,10 +46,6 @@
             {
                 "label": "Join Us",
                 "link": "/join"
-            },
-            {
-                "label": "Contact",
-                "link": "/contact"
             }
         ]
     },
@@ -63,41 +54,6 @@
             "link": "https://linkedin.com/company/lynx-flooring",
             "title": "LinkedIn"
         }
-    ],
-    "projects": {
-        "categories": [
-            {
-                "name": "Architecture",
-                "slug": "architecture"
-            },
-            {
-                "name": "Interior",
-                "slug": "interior"
-            },
-            {
-                "name": "Decor",
-                "slug": "decor"
-            }
-        ]
-    },
-    "team": {
-        "categories": [
-            {
-                "name": "Executive",
-                "slug": "executive"
-            },
-            {
-                "name": "Data centers",
-                "slug": "data-centers"
-            },
-            {
-                "name": "Education",
-                "slug": "education"
-            },
-            {
-                "name": "Workplace",
-                "slug": "workplace"
-            }
-        ]
-    }
+    ]
+    
 } 

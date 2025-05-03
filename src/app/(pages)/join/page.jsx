@@ -27,7 +27,7 @@ const JoinUs = () => {
 
       {/* join sections */}
       <section className="mil-relative" style={{ backgroundColor: "#fff" }}>
-        <div className="container" style={{ padding: "100px 0 80px" }}>
+        <div className="container" style={{ padding: "100px 0 40px" }}>
           <div className="row justify-content-between">
             <div
               className="col-12 text-center"
@@ -58,7 +58,7 @@ const JoinUs = () => {
             </div>
 
             {/* Careers Section */}
-            <div className="col-lg-6" style={{ marginBottom: "30px" }}>
+            <div className="col-lg-6">
               <div
                 style={{
                   backgroundColor: "#fcfcfc",
@@ -455,6 +455,121 @@ const JoinUs = () => {
             </div>
           </div>
         </div>
+
+        {/* Added Contact Info Section */}
+        <div className="container" style={{ padding: "0 0 40px" }}>
+            <div className="row justify-content-center">
+                <div className="col-lg-10"> 
+                    <div
+                      style={{
+                        backgroundColor: "#f8f9fa",
+                        padding: "40px",
+                        borderRadius: "12px",
+                        border: "1px solid #eee",
+                        marginTop: "0"
+                      }}
+                    >
+                      <div className="row align-items-center"> 
+                          <div className="col-md-7"> 
+                              <h2
+                                className="mil-upper"
+                                style={{
+                                  fontSize: "2.2rem",
+                                  marginBottom: "20px",
+                                  color: "#262626",
+                                  letterSpacing: "0.5px",
+                                  fontWeight: "600",
+                                }}
+                              >
+                                We'd love to talk
+                              </h2>
+                              <p
+                                style={{
+                                  fontSize: "1rem",
+                                  lineHeight: "1.6",
+                                  color: "#666",
+                                  marginBottom: "25px",
+                                }}
+                              >
+                                Have a question? We'd love to hear from you. Send us a note to
+                                get the conversation started.
+                              </p>
+                              <div
+                                style={{
+                                  width: "40px",
+                                  height: "2px",
+                                  backgroundColor: "#C2D720",
+                                  marginBottom: "25px",
+                                }}
+                              ></div>
+                          </div>
+
+                          <div className="col-md-5">
+                              <div
+                                style={{
+                                  backgroundColor: "white",
+                                  padding: "25px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #eee",
+                                }}
+                              >
+                                <div style={{ marginBottom: "20px" }}>
+                                  <h6
+                                    style={{
+                                      fontSize: "0.85rem",
+                                      fontWeight: "600",
+                                      textTransform: "uppercase",
+                                      letterSpacing: "1px",
+                                      color: "#262626",
+                                      marginBottom: "10px",
+                                    }}
+                                  >
+                                    Phone
+                                  </h6>
+                                  <p
+                                    style={{
+                                      fontSize: "1.1rem",
+                                      color: "#262626",
+                                      margin: 0,
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    (416) 323-3512
+                                  </p>
+                                </div>
+                                <div>
+                                  <h6
+                                    style={{
+                                      fontSize: "0.85rem",
+                                      fontWeight: "600",
+                                      textTransform: "uppercase",
+                                      letterSpacing: "1px",
+                                      color: "#262626",
+                                      marginBottom: "10px",
+                                    }}
+                                  >
+                                    Email
+                                  </h6>
+                                  <p
+                                    style={{
+                                      fontSize: "1.1rem",
+                                      color: "#262626",
+                                      margin: 0,
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    ma@lynxequity.com
+                                  </p>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/* End Added Contact Info Section */}
+
       </section>
       {/* join sections end */}
     </>

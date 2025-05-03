@@ -2,47 +2,49 @@
 
 import Data from "@data/sections/hero-1.json";
 import Link from "next/link";
+import Image from "next/image";
 
-import { useEffect } from "react";
-import { ScrollAnimation } from "@common/scrollAnims";
+import { useEffect, useState, memo, useCallback } from "react";
 
+// Simplified HeroOne component
 const HeroOne = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
-    ScrollAnimation();
+    // Use requestAnimationFrame for smoother initialization
+    requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
   }, []);
 
   return (
     <>
       {/* banner */}
       <section className="mil-banner">
-        {/* Modern dynamic background */}
-        <div className="mil-dynamic-bg">
-          <div
-            className="mil-shape-1 mil-parallax"
-            data-value-1="-100"
-            data-value-2="100"
-          ></div>
-          <div
-            className="mil-shape-2 mil-parallax"
-            data-value-1="-50"
-            data-value-2="50"
-          ></div>
-          <div
-            className="mil-shape-3 mil-parallax"
-            data-value-1="-30"
-            data-value-2="30"
-          ></div>
+        {/* Removed mil-dynamic-bg and mil-gradient-overlay for potential performance gain */}
+        {/* <div className="mil-dynamic-bg">
           <div className="mil-gradient-overlay"></div>
-        </div>
+        </div> */}
 
-        <img
-          src={Data.bg_image}
-          className="mil-bg-img mil-scale"
-          data-value-1=".4"
-          data-value-2="1.4"
-          alt="background"
-          style={{ filter: "grayscale(100%)" }}
-        />
+        <div className="mil-bg-img-container">
+          {/* Developer TODO: Ensure the source image (Data.bg_image) is optimized (e.g., WebP/AVIF format, appropriate dimensions, and compression). */}
+          <Image
+            src={Data.bg_image}
+            alt="background"
+            fill
+            priority
+            sizes="100vw"
+            style={{ 
+              objectFit: 'cover',
+              // Apply filter along with transform based on visibility
+              filter: isVisible ? "grayscale(100%)" : "grayscale(0%)",
+              transform: isVisible ? "scale(1)" : "scale(0.98)",
+              // Ensure transition applies to both transform and filter, adjusted for smoothness
+              transition: "transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.9s cubic-bezier(0.25, 0.1, 0.25, 1)",
+              willChange: "transform, filter" // Hint for browser optimization
+            }}
+          />
+        </div>
 
         <div
           className="mil-overlay"
@@ -59,8 +61,23 @@ const HeroOne = () => {
               <div className="col-xl-7">
                 <div className="mil-mb-90">
                   <h1
-                    className="mil-upper mil-light mil-mb-60 mil-up"
+                    className={`mil-upper mil-light mil-mb-60 ${isVisible ? 'mil-fade-in' : 'mil-hidden'}`}
+                    style={{ 
+                      transitionDelay: "0.2s"
+                    }}
                     dangerouslySetInnerHTML={{ __html: Data.title }}
+                  />
+                  <p
+                    className={`mil-light mil-mb-60 ${isVisible ? 'mil-fade-in' : 'mil-hidden'}`}
+                    style={{ 
+                      transitionDelay: "0.3s",
+                      fontSize: "1.1rem",
+                      lineHeight: "1.5",
+                      color: "rgba(255, 255, 255, 0.85)",
+                      maxWidth: "600px",
+                      letterSpacing: "0.02em"
+                    }}
+                    dangerouslySetInnerHTML={{ __html: Data.subtitle }}
                   />
                 </div>
               </div>
@@ -69,16 +86,17 @@ const HeroOne = () => {
                   {Data.numbers.map((item, key) => (
                     <div className="col-6" key={`hero-numbers-item-${key}`}>
                       <div
-                        className="mil-counter-frame mil-light mil-mb-30 mil-up"
-                        style={{ "--index": key + 1 }}
+                        className={`mil-counter-frame mil-light mil-mb-30 ${isVisible ? 'mil-fade-in' : 'mil-hidden'}`}
+                        style={{ 
+                          transitionDelay: `${0.4 + (key * 0.15)}s`
+                        }}
                       >
                         <h4 className="mil-accent mil-thin mil-mb-10">
-                          <span
-                            className="mil-counter"
-                            data-number={item.value}
-                          >
-                            0
-                          </span>
+                          <SimpleCounter 
+                            value={item.value} 
+                            isVisible={isVisible}
+                            delay={0.4 + (key * 0.15)}
+                          />
                           {item.valueAfter}
                         </h4>
                         <p
@@ -98,4 +116,25 @@ const HeroOne = () => {
     </>
   );
 };
-export default HeroOne;
+
+// Simplified counter component: Removed JS animation, displays value directly.
+const SimpleCounter = memo(({ value, isVisible, delay }) => {
+  // We don't need displayValue state or the complex effect anymore
+  const targetValue = parseInt(value, 10);
+
+  // Render the final value directly. The parent div handles the fade-in via transitionDelay.
+  // We add a simple opacity transition here tied to isVisible for clarity, though parent handles it.
+  return (
+    <span style={{
+      opacity: isVisible ? 1 : 0,
+      transition: 'opacity 0.5s ease-in-out',
+      transitionDelay: `${delay}s` // Ensure span respects the delay too
+    }}>
+      {isNaN(targetValue) ? '0' : targetValue.toString()}
+    </span>
+  );
+});
+
+SimpleCounter.displayName = 'SimpleCounter';
+
+export default memo(HeroOne);

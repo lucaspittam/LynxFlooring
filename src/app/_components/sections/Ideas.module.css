@@ -1,203 +1,249 @@
+/* === Ideas Section Redesign === */
+
 .ideasSection {
-  padding: 50px 0;
-  overflow: hidden;
+  padding: 80px 0; /* Reduced padding from 120px */
+  background-color: var(--mil-contrast-background, #f5f5f5); /* Use a variable or a light grey */
   position: relative;
-  background: #ffffff;
+  overflow: hidden; /* Prevent potential overflows */
 }
 
-.accent1,
-.accent2 {
-  display: none;
-}
-
-.cardShadow {
-  transition: all 0.3s ease;
-  padding: 10px 0;
-  position: relative;
-  background: transparent;
-  margin-bottom: 5px;
-}
-
-.cardShadow:before {
-  display: none;
-}
-
-.cardShadow:hover {
-  transform: translateX(5px);
-}
-
-.gradientBg {
-  background: var(--accent-color, #c2d720);
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.scaleOnHover {
-  transition: transform 0.3s ease;
-}
-
-.scaleOnHover:hover {
-  transform: scale(1.05);
-}
-
-.titleReveal {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 15px;
-  color: #333;
-  position: relative;
-}
-
-.titleReveal::after {
-  content: "";
+/* Optional: Add a subtle background pattern or gradient */
+/* .ideasSection::before {
+  content: '';
   position: absolute;
-  width: 40px;
-  height: 2px;
-  background: var(--accent-color, #c2d720);
-  bottom: -8px;
+  top: 0;
   left: 0;
-}
+  width: 100%;
+  height: 100%;
+  background-image: url('/path/to/pattern.svg');
+  opacity: 0.05;
+  z-index: 0;
+} */
 
-.description {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 0;
-}
-
-.description::before {
-  display: none;
-}
-
-.subtitleWrapper {
+.contentRow {
   position: relative;
-  display: inline-block;
-  margin-bottom: 5px;
+  z-index: 1;
+  align-items: center; /* Vertically align items in the row */
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .subtitleText {
-  display: inline-block;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--accent-color, #000000);
-  margin-bottom: 10px;
+  color: var(--mil-primary); /* Use primary color */
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  font-size: 14px; /* Slightly adjust size */
+  margin-bottom: 15px; /* Adjusted spacing */
 }
 
-.subtitleText::before {
-  display: none;
+.titleReveal {
+  font-size: clamp(30px, 4.5vw, 44px); /* Slightly smaller max size */
+  line-height: 1.2;
+  color: var(--mil-heading-color);
+  font-weight: 800;
+  margin-bottom: 20px; /* Reduced spacing from 25px */
 }
 
-.buttonWrapper {
-  position: relative;
-  display: inline-block;
-  margin-top: 10px;
-  overflow: hidden;
+.description,
+.mission {
+  font-size: 16px;
+  line-height: 1.65; /* Slightly reduced line-height */
+  color: var(--mil-text-color);
+  max-width: 500px; /* Limit text width for readability */
+  margin-bottom: 20px; /* Reduced spacing from 25px */
 }
 
-.ctaButton {
-  display: inline-flex;
+.mission {
+  font-style: normal; /* Remove default italic */
+  /* Optional: Add a subtle border or background for emphasis */
+  /* padding-left: 20px; */
+  /* border-left: 3px solid var(--mil-primary); */
+}
+
+/* Using global button styles + specific overrides */
+.learnMoreButton {
+  /* Inherits from .mil-button, .mil-button-rounded, .mil-button-lg */
+  margin-top: 15px; /* Reduced spacing from 20px */
+  display: inline-flex; /* Ensure flex alignment */
   align-items: center;
-  padding: 8px 16px;
-  background: var(--accent-color, #c2d720);
-  border-radius: 4px;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  margin-top: 15px;
+  gap: 8px; /* Space between text and icon */
+  /* Add hover/focus states if not covered by global styles */
 }
 
-.ctaButton:hover {
+.learnMoreButton:hover {
+  /* Define hover effect - example */
   transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.buttonText {
-  position: relative;
-  z-index: 2;
-}
-
-.arrowIcon {
-  margin-left: 8px;
+.learnMoreButton .arrowIcon svg {
+  width: 18px;
+  height: 18px;
   transition: transform 0.3s ease;
 }
 
-.ctaButton:hover .arrowIcon {
-  transform: translateX(3px);
+.learnMoreButton:hover .arrowIcon svg {
+  transform: translateX(4px);
 }
 
-.contentWrapper {
-  position: relative;
-  padding: 0;
-  border-radius: 0;
+
+/* --- Right Column --- */
+
+.rightColumn {
+  display: flex;
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally if needed */
 }
 
 .featuresWrapper {
   display: flex;
   flex-direction: column;
+  gap: 20px; /* Reduced space between cards from 25px */
+  width: 100%;
+  max-width: 450px; /* Max width for the cards container */
+  margin: 0 auto; /* Center if rightColumn is wider */
 }
 
-.featureItem {
-  margin-bottom: 5px;
+.featureCard {
+  display: flex;
+  align-items: center;
+  padding: 25px 30px; /* Adjusted padding */
+  background-color: #ffffff; /* White background */
+  border-radius: 12px; /* Slightly larger radius */
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Softer shadow */
+  border: 1px solid transparent; /* Base border */
 }
 
-.featureTitle {
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  margin: 0;
-  color: #333;
+.featureCard:hover {
+  transform: translateY(-6px) scale(1.03); /* More pronounced hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+  border-color: var(--mil-primary); /* Accent border on hover */
+  /* Optional: Change background on hover */
+  /* background-color: var(--mil-light-primary); */
 }
 
-.featureIcon {
-  filter: brightness(1);
-  transition: all 0.3s ease;
+.cardIcon {
+  flex-shrink: 0; /* Prevent icon shrinking */
+  width: 55px; /* Slightly larger icon circle */
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--mil-light-background, #eef2f7); /* Light bg for icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
 }
 
-.cardShadow:hover .featureIcon {
-  filter: brightness(1.2);
+.featureCard:hover .cardIcon {
+  background-color: var(--mil-primary);
 }
+
+.cardIcon img {
+  transition: filter 0.3s ease;
+  width: 28px; /* Match JSX width */
+  height: 28px;
+  filter: none;
+}
+
+.featureCard:hover .cardIcon img {
+  filter: brightness(0) invert(1); /* Make icon white on hover */
+}
+
+.cardTextContent {
+  flex-grow: 1; /* Allow text to take space */
+  /* overflow: hidden; Prevent text overflow issues */
+}
+
+.cardTitle {
+  font-size: 18px;
+  color: var(--mil-heading-color);
+  margin-bottom: 0; /* Remove bottom margin if no description */
+  transition: color 0.3s ease;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Optional: Styles for card description if added */
+/* .cardDescription { ... } */
+
+.featureCard:hover .cardTitle {
+  color: var(--mil-primary); /* Optional: change title color on hover */
+}
+
+.cardArrow {
+  flex-shrink: 0;
+  margin-left: 20px;
+  color: var(--mil-accent); /* Use accent color for arrow */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cardArrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.featureCard:hover .cardArrow {
+  transform: translateX(5px);
+  color: var(--mil-primary); /* Change arrow color on hover */
+}
+
+.featuresWrapper .featureCard:first-child:hover .cardIcon img {
+  filter: none !important;
+}
+
+/* --- Responsive --- */
 
 @media (max-width: 991px) {
   .ideasSection {
-    padding: 40px 0;
+    padding: 60px 0; /* Reduced padding */
   }
-
-  .titleReveal {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+  .leftColumn {
+    margin-bottom: 40px; /* Reduced space */
+    text-align: center; /* Center text */
+    align-items: center; /* Center button */
   }
-
-  .description {
-    margin-bottom: 20px;
+  .rightColumn {
+    justify-content: center;
+  }
+  .featuresWrapper {
+    max-width: none; /* Allow full width */
   }
 }
 
 @media (max-width: 767px) {
   .ideasSection {
-    padding: 30px 0;
+    padding: 50px 0; /* Reduced padding */
   }
-
   .titleReveal {
-    font-size: 1.6rem;
+    font-size: clamp(28px, 8vw, 36px);
   }
-
-  .featuresWrapper {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .featureCard {
+    padding: 20px;
   }
-
-  .featureItem {
-    width: 48%;
+  .cardTitle {
+    font-size: 16px;
+  }
+  .cardIcon {
+    width: 45px;
+    height: 45px;
+    margin-right: 15px;
+  }
+  .cardIcon img {
+    width: 22px;
+    height: 22px;
+  }
+  .cardArrow svg {
+    width: 18px;
+    height: 18px;
   }
 }
+
+/* Remove or comment out old/unused styles explicitly if they conflict */
+/* .oldStyle { display: none; } */

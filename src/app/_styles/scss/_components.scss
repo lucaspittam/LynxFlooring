@@ -99,6 +99,7 @@ banner
     position: relative;
     overflow: hidden;
     height: 100vh;
+    min-height: 600px;
 
     & .mil-banner-slider {
         width: 100%;
@@ -113,37 +114,55 @@ banner
         height: 100%;
         display: flex;
         align-items: flex-end;
+        padding-bottom: 60px;
     }
 
     & .mil-banner-content {
-        padding: 0 0 30px;
+        padding: 0;
         width: 100%;
         position: relative;
     }
 
-    & .mil-banner-slider-2 {
-        height: 100%;
-    }
-
     @media screen and (max-width: 992px) {
+        min-height: 500px;
         height: auto;
 
-        & .mil-banner-content {
-            padding: 190px 0 0;
+        & .container {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            min-height: 100vh;
         }
 
-        & .mil-banner-slider-2 {
-            & .mil-banner-content {
-                padding: 190px 0 190px;
-            }
+        & .mil-banner-content {
+            padding: 0;
         }
     }
 
-    &.mil-banner-sm {
-        height: 600px;
+    @media screen and (max-width: 768px) {
+        & .container {
+            padding-top: 100px;
+        }
 
-        @media screen and (max-width: 1200px) {
-            height: 480px;
+        & h1 {
+            font-size: 2.5rem;
+        }
+
+        & .mil-counter-frame {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        & .container {
+            padding-top: 80px;
+        }
+
+        & h1 {
+            font-size: 2rem;
+        }
+
+        & .row {
+            margin: 0;
         }
     }
 }
@@ -387,7 +406,7 @@ illustrations
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: center top;
     }
 }
 
@@ -422,7 +441,7 @@ illustrations
     }
 
     &.mil-fw-item {
-        padding-bottom: 40%;
+        padding-bottom: 55%;
 
         @media screen and (max-width: 992px) {
             padding-bottom: 60%;
@@ -1272,14 +1291,22 @@ top panel
 
 ------------------------------------------- */
 .mil-top-panel {
-    border-bottom: solid 1px $lt-10;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
     position: fixed;
     z-index: 999;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    transition: $t-md;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+
+    &.mil-scrolled {
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    }
 
     & .mil-top-panel-content {
         height: 100px;
@@ -1301,8 +1328,8 @@ top panel
     }
 
     &.mil-active {
-        background-color: $dt-90;
-        backdrop-filter: blur(8px);
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     @media screen and (max-width: 480px) {

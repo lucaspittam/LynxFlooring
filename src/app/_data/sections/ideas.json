@@ -1,21 +1,17 @@
 {
-    "title": "Whatever is worth doing at all, is worth doing well.",
-    "subtitle": "Our Purpose",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse ultrices gravida.",
+    "title": "Building the Future of Commercial Flooring",
+    "subtitle": "Who We Are",
+    "description": "Lynx Flooring is amongst the largest commercial flooring groups nationally and is comprised of some of the strongest contractors in the marketplace. What began as a single acquisition in 2014, has grown into a curated list of companies that are dominant in their markets with long-term track records.",
+    "mission": "Our mission is simple – provide excellent contractors with the resources and support to successfully transition from their existing leadership over to the next generation.",
     "button": {
         "link": "/join",
-        "label": "Join Our Team Today"
+        "label": "Learn More About Us"
     },
     "items": [
         {
             "icon": "/img/icons/4.svg",
-            "link": "/projects",
+            "link": "/companies",
             "label": "Our Companies"
-        },
-        {
-            "icon": "/img/icons/5.svg",
-            "link": "/contact",
-            "label": "Contact Us"
         }
     ],
     "background": {

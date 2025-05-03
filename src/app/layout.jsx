@@ -1,19 +1,12 @@
 // Global and third-party styles
 import "@styles/scss/style.scss";
 import "./globals.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 // Component-specific styles
 import "./_styles/hero.css";
 import "./_styles/modern-backgrounds.css";
 import "./_styles/css/plugins/bootstrap-grid.css";
 import "./_styles/css/plugins/magnific-popup.css";
-
-// Register Swiper custom elements
-import { register } from "swiper/element/bundle";
-register();
 
 // Components
 import ScrollbarProgress from "@layouts/scrollbar-progress/Index";

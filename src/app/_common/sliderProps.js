@@ -1,41 +1,4 @@
-import SwiperCore, {
-  A11y,
-  Autoplay,
-  EffectCreative,
-  EffectFade,
-  Grid,
-  HashNavigation,
-  History,
-  Keyboard,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  Scrollbar,
-  Thumbs,
-  Virtual,
-  Parallax,
-  FreeMode,
-} from "swiper";
-
-SwiperCore.use([
-  Mousewheel,
-  Pagination,
-  Navigation,
-  EffectFade,
-  Autoplay,
-  Grid,
-  EffectCreative,
-  Virtual,
-  HashNavigation,
-  History,
-  Thumbs,
-  Scrollbar,
-  Keyboard,
-  A11y,
-  Parallax,
-  FreeMode,
-]);
-
+// Import minimal CSS
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -44,12 +7,19 @@ export const SliderProps = {
   milInfiniteSlider: {
     slidesPerView: 1,
     spaceBetween: 0,
-    speed: 0,
-    autoplay: false,
+    speed: 8000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
     loop: true,
+    simulateTouch: false,
     allowTouchMove: false,
-    watchSlidesProgress: true,
-    loopedSlides: 6,
+    watchSlidesProgress: false,
+    observer: false,
+    observeParents: false,
+    resizeObserver: false,
+    updateOnWindowResize: false,
     breakpoints: {
       768: {
         slidesPerView: 2,
@@ -65,10 +35,11 @@ export const SliderProps = {
     speed: 800,
     autoplay: {
       delay: 5000,
+      disableOnInteraction: false,
     },
     effect: "fade",
-    parallax: true,
     loop: true,
+    lazy: true,
     navigation: {
       prevEl: ".mil-banner-prev",
       nextEl: ".mil-banner-next",
@@ -85,10 +56,11 @@ export const SliderProps = {
     speed: 800,
     autoplay: {
       delay: 5000,
+      disableOnInteraction: false,
     },
     effect: "fade",
-    parallax: true,
     loop: true,
+    lazy: true,
     navigation: {
       prevEl: ".mil-banner-prev",
       nextEl: ".mil-banner-next",
@@ -103,7 +75,7 @@ export const SliderProps = {
     slidesPerView: 1,
     spaceBetween: 30,
     speed: 800,
-    parallax: true,
+    lazy: true,
     navigation: {
       prevEl: ".mil-process-prev",
       nextEl: ".mil-process-next",
@@ -119,7 +91,7 @@ export const SliderProps = {
     spaceBetween: 30,
     speed: 800,
     effect: "fade",
-    parallax: true,
+    lazy: true,
     navigation: {
       prevEl: ".mil-process-prev",
       nextEl: ".mil-process-next",
@@ -135,8 +107,8 @@ export const SliderProps = {
     spaceBetween: 30,
     speed: 800,
     effect: "fade",
-    parallax: true,
     loop: true,
+    lazy: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
