@@ -54,6 +54,13 @@
             "link": "https://linkedin.com/company/lynx-flooring",
             "title": "LinkedIn"
         }
-    ]
-    
+    ],
+    "projects": {
+        "categories": [
+            { "label": "All", "value": "*" },
+            { "label": "Commercial", "value": "commercial" },
+            { "label": "Industrial", "value": "industrial" },
+            { "label": "Residential", "value": "residential" }
+        ]
+    }
 } 
