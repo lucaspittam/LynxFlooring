@@ -16,13 +16,13 @@ export default async function Companies() {
   const companies = await getSortedProjectsData();
 
   return (
-    <>
+    <div style={{ minHeight: "100vh", position: "relative" }}>
       <PageBanner
         pageTitle={"Our Companies"}
         breadTitle={"Companies"}
         bgImage={"/img/photo/header2.jpg"}
       />
       <CompaniesContent companies={companies} />
-    </>
+    </div>
   );
 }

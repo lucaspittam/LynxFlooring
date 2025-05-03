@@ -165,6 +165,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Ensure the page is scrollable */
+  height: auto;
+  overflow-y: auto !important;
+}
+
+/* Ensure the wrapper allows scrolling */
+.mil-wrapper {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Fix for mobile scrolling issues */
+#content {
+  position: relative;
+  overflow-y: visible;
+  overflow-x: hidden;
+  height: auto;
 }
 
 /* Optimize swiper performance */
@@ -189,6 +208,24 @@ body {
   .mil-about-content .mil-link.mil-link-hover {
     display: inline-block; /* Ensure margin applies correctly */
     margin-bottom: 20px; 
+  }
+  
+  /* Fix for mobile scrolling issues */
+  body, html {
+    height: auto;
+    overflow-y: auto !important;
+    position: relative;
+  }
+  
+  #content {
+    padding-bottom: 0;
+    min-height: calc(100vh - 100px);
+  }
+  
+  /* Fix for Join and Companies pages */
+  section {
+    position: relative;
+    overflow: visible;
   }
 }
 
@@ -295,6 +332,11 @@ body {
     animation-name: scrollPartnersMobile;
     animation-duration: 20s; /* Slightly faster on mobile maybe? */
     margin-left: -20px; /* Updated mobile negative margin */
+  }
+  
+  /* Mobile fix for specific pages */
+  .mil-company-card, .mil-company-content {
+    height: auto !important;
   }
 }
 

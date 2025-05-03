@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const JoinUs = () => {
   return (
-    <>
+    <div style={{ minHeight: "100vh", position: "relative", overflowY: "visible" }}>
       <style jsx>{`
         @media screen and (max-width: 768px) {
           .join-intro-text {
@@ -26,7 +26,7 @@ const JoinUs = () => {
       />
 
       {/* join sections */}
-      <section className="mil-relative" style={{ backgroundColor: "#fff" }}>
+      <section className="mil-relative" style={{ backgroundColor: "#fff", position: "relative", overflowY: "visible" }}>
         <div className="container" style={{ padding: "100px 0 40px" }}>
           <div className="row justify-content-between">
             <div
@@ -572,7 +572,7 @@ const JoinUs = () => {
 
       </section>
       {/* join sections end */}
-    </>
+    </div>
   );
 };
 
