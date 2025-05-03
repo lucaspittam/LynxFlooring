@@ -2,7 +2,7 @@ import React from "react";
 import AppData from "@data/app.json";
 import PageBanner from "@appComponents/PageBanner";
 import RecruitSection from "../../_components/sections/Recruit";
-import TeamSection from "@components/TeamSection";
+import TeamSection from "@appComponents/sections/Team";
 
 export const metadata = {
   title: {

@@ -2,8 +2,8 @@
 
 import React from "react";
 import AppData from "@data/app.json";
-import PageBanner from "@components/PageBanner";
-import ContactForm from "@components/ContactForm";
+import PageBanner from "@appComponents/PageBanner";
+import ContactForm from "@appComponents/ContactForm";
 import Link from "next/link";
 
 const JoinUs = () => {
