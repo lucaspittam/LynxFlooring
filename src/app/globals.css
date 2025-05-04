@@ -185,7 +185,7 @@ body {
   /* overflow-y: visible; */ /* Remove - let wrapper scroll */
   /* overflow-x: hidden; */ /* Remove - let wrapper scroll */
   /* height: auto; */ /* Remove - let content dictate height */
-  padding-top: 100px; /* ADDED - Offset for fixed header height */
+  /* padding-top: 100px; */ /* REVERTED - Banner has its own padding */
   flex-grow: 1; /* Allow content to fill space */
   flex-shrink: 0; /* Prevent content from shrinking */
   width: 100%; /* Ensure content takes full width */

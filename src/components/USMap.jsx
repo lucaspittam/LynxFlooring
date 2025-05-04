@@ -237,7 +237,6 @@ const USMap = ({ locations }) => {
           onTouchStart={handleMouseDown}
           onTouchMove={handleMouseMove}
           onTouchEnd={handleMouseUp}
-          disablePanning={false}
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
