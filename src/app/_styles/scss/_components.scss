@@ -98,8 +98,9 @@ banner
 .mil-banner {
     position: relative;
     overflow: hidden; /* Restored */
-    height: 100vh; /* Restored */
-    min-height: 600px; /* Restored */
+    /* height: 100vh; */ /* Replaced with min-height calculation */
+    min-height: calc(100vh - 100px); /* Account for 100px fixed header */
+    /* min-height: 600px; */ /* Original min-height might conflict, let calc handle it */
 
     & .mil-banner-slider {
         width: 100%;
@@ -136,13 +137,13 @@ banner
     }
 
     @media screen and (max-width: 992px) {
-        min-height: 500px; /* Restored */
+        /* min-height: 500px; */ /* Let inner container handle height on mobile */
         height: auto; /* Restored */
 
         & .container {
             padding-top: 120px;
             padding-bottom: 60px;
-            min-height: 100vh; /* Restored */
+            min-height: calc(100vh - 100px); /* Adjust mobile min-height too */
         }
 
         & .mil-banner-content {
