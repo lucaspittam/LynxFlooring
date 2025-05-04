@@ -20,7 +20,7 @@ import 'swiper/css/effect-fade';
 import Data from "@data/sliders/hero-1.json";
 import Link from "next/link";
 
-import { useEffect, memo } from "react";
+import { useEffect, memo, useRef } from "react";
 import { ScrollAnimation } from "@common/scrollAnims";
 
 // Dynamically import Swiper components
@@ -29,8 +29,20 @@ const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperS
 
 
 const HeroOneSlider = () => {
+  const swiperRef = useRef(null);
+
   useEffect(() => {
     ScrollAnimation();
+  }, []);
+
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      const timer = setTimeout(() => {
+        swiperRef.current.swiper.update(); 
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -40,6 +52,7 @@ const HeroOneSlider = () => {
         {/* Ensure Swiper component is rendered only after dynamic import resolves */}
         {Swiper && SwiperSlide && (
           <Swiper
+            ref={swiperRef}
             // Pass modules
             modules={[Navigation, Pagination, Autoplay, EffectFade]} 
             slidesPerView={1}
