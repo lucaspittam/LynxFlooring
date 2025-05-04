@@ -183,7 +183,7 @@ banner
 
     @media screen and (max-width: 480px) {
         & .container {
-            padding-top: 80px;
+            padding-top: 120px; /* Increased from 80px to clear 100px header */
         }
 
         & h1 {
