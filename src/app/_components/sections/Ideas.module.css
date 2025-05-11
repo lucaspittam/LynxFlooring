@@ -2,7 +2,7 @@
 
 .ideasSection {
   padding: 80px 0; /* Reduced padding from 120px */
-  background-color: var(--mil-contrast-background, #f5f5f5); /* Use a variable or a light grey */
+  background-color: #ffffff; /* Set to white */
   position: relative;
   overflow: hidden; /* Prevent potential overflows */
 }

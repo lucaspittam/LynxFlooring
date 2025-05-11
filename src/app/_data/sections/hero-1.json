@@ -1,6 +1,6 @@
 {
     "bg_image": "/img/photo/1.jpg",
-    "title": "The Home For<br/><span class=\"mil-accent\">Legacy <br/> Flooring</span><br/>Contractors",
+    "title": "The Home For<br/><span class=\"mil-accent\">Legacy Flooring</span><br/>Contractors",
     "subtitle": "Building a permanent future for local brands to provide customers with the trusted service they've always known",
     "numbers": [
         {
@@ -17,11 +17,6 @@
             "value": "11",
             "afterValue": "+",
             "label": "Years <br/>Experience"
-        },
-        {
-            "value": "150",
-            "afterValue": "+",
-            "label": "Million In <br/>Revenue"
         }
     ]
 } 

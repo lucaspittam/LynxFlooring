@@ -166,6 +166,14 @@ body {
   /* Ensure the page is scrollable */
   height: 100%; /* Let wrapper handle min-height */
   overflow-y: auto; /* Default scroll */
+  background-color: #ffffff; /* Base white background */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.02), /* Color of the line (very faint dark grey) */
+    rgba(0, 0, 0, 0.02) 1px, /* Line is 1px thick */
+    transparent 1px, /* Start of transparent gap */
+    transparent 10px /* End of transparent gap (lines are 10px apart overall) */
+  );
 }
 
 /* Ensure the wrapper allows scrolling and defines height */

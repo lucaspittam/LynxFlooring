@@ -458,6 +458,49 @@ const CompaniesContent = ({ companies }) => {
                         </p>
                       </div>
 
+                      {/* President Information for Multi-Company Card View */}
+                      {activeCompany === "all" && companyHighlights[company.id]?.president && (
+                        <div className="mil-company-president-card" style={{ marginBottom: "15px", paddingTop: "10px", borderTop: "1px solid #eee" }}>
+                          <div style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}>
+                            <svg 
+                              width="16" 
+                              height="16" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                              style={{ color: "#C2D720" }}
+                            >
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <div style={{ fontSize: "14px", fontWeight: "600", color: "#333" }}>
+                              {companyHighlights[company.id].president.name}
+                            </div>
+                          </div>
+                          <a
+                            href={`mailto:${companyHighlights[company.id].president.email}`}
+                            style={{
+                              display: "block",
+                              fontSize: "13px",
+                              color: "#666",
+                              textDecoration: "none",
+                              marginLeft: "24px", // Align with name, after icon
+                              marginTop: "2px"
+                            }}
+                            className="mil-link-hover-accent"
+                          >
+                            {companyHighlights[company.id].president.email}
+                          </a>
+                        </div>
+                      )}
+
                       {/* Services */}
                       <div className="mil-company-services" style={{ marginBottom: "20px" }}>
                         <h4 style={{ fontSize: "18px", marginBottom: "15px", display: "flex", alignItems: "center" }}>

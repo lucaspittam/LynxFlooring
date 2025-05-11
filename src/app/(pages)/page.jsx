@@ -97,15 +97,15 @@ async function Home1() {
       </div>
       
       <div className="mil-section-off-screen">
+        <AboutSection />
+      </div>
+
+      <div className="mil-section-off-screen">
         <AdvantagesSection />
       </div>
       
       <div className="mil-section-off-screen">
         <LatestProjectsSection projects={projects} />
-      </div>
-
-      <div className="mil-section-off-screen">
-        <AboutSection />
       </div>
 
       {/* Map Section */}
