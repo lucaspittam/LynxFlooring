@@ -130,3 +130,24 @@
 /*   background-color: #f8f9fa; Light background for contrast */
 /*   padding: 60px 0; Adjust padding as needed */
 /* } */
+
+@media (max-width: 768px) {
+  .mil-banner {
+    padding-top: 80px; /* Increased top padding */
+    padding-bottom: 60px; /* Added bottom padding */
+    min-height: 80vh; /* Adjust min-height for mobile */
+    display: flex; /* Enable flex to help with centering */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+  }
+
+  .mil-banner .mil-banner-content h1 {
+    font-size: 2.5rem; /* Slightly reduce font size for title on mobile */
+    margin-bottom: 30px; /* Reduce margin for title */
+  }
+
+  .mil-banner .mil-banner-content p {
+    font-size: 1rem; /* Adjust font size for subtitle on mobile */
+    margin-bottom: 40px; /* Adjust margin for subtitle */
+  }
+}
